@@ -23,6 +23,7 @@ if(Meteor.isClient){
          throw new Meteor.Error(error.reason)
        } else {
            Router.go('/');
+           FlashMessages.sendError("User created successfully!")
        }
    });
      console.log("Form submitted.");
@@ -40,14 +41,14 @@ if(Meteor.isClient){
      var emailVar = event.target.loginEmail.value;
      var passwordVar = event.target.loginPassword.value;
 
-     //Can't have empty fields
-     if(!emailVar || !passwordVar){
-       FlashMessages.sendError("All fields must be filled.");
-       throw new Meteor.Error("All fields must be filled.");
-     }
-
      //Perform the login action with a Meteor collection
-     Meteor.loginWithPassword(emailVar, passwordVar);
+     Meteor.loginWithPassword(emailVar, passwordVar, function(error){
+       if(error){
+         FlashMessages.sendError(error.reason);
+       }else{
+         FlashMessages.sendError("Login success!");
+       }
+     });
 
      console.log("Form submitted.");
    }
