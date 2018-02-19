@@ -44,9 +44,16 @@ if(Meteor.isClient){
         FlashMessages.sendError("All fields must be filled.");
         throw new Meteor.Error("All fields must be filled.");
       }
-      
+
       //Perform the login action with a Meteor collection
-      Meteor.loginWithPassword(emailVar, passwordVar);
+      Meteor.loginWithPassword(emailVar, passwordVar, function(error){
+        if(Meteor.user){
+          FlashMessages.sendSuccess("Log in success");
+        }else{
+          FlashMessages.sendError("Failled to find email or password.");
+          throw new Meteor.Error("Failled to find email or password.");
+        }
+      });
 
       console.log("Form submitted.");
     }
