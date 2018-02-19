@@ -5,3 +5,7 @@ Router.route("/", function  (){
 Router.route("/register", function(){
   this.render("register");
 });
+
+Router.route("/addgroup", function(){
+  this.render("addgroup");
+});
