@@ -15,9 +15,8 @@ if(Meteor.isClient){
   });
 
   Template.hello.helpers({
-    numeroDeProductos: function() {
-    return "HELLO BITCH";
-  }
+    allUsers(){ return Meteor.users.find({}); },
+    email(){ return this.emails[0].address; }
 });
 
 
