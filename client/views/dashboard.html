@@ -3,7 +3,7 @@
 
   {{#each allUsers}}
   {{#if email !=""}}
-    <input id="mail" type="text" value="{{email}}" />
+    {{email}}
     {{/if}}
   {{/each}}
 
@@ -13,9 +13,9 @@
 
 <template name="dashboard">
 
-{{> hello}}
 
-  HELLO
+
+  Welcome {{> hello}}
 
     <p><a href="#" class="logout">Logout</a></p>
 </template>
