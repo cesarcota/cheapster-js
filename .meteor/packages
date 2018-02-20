@@ -24,3 +24,4 @@ accounts-ui
 iron:router
 mrt:flash-messages
 accounts-base
+benjaminrh:user-session

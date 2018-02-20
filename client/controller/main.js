@@ -10,7 +10,7 @@ if(Meteor.isClient){
      //Both passwords must be equal
      if(repeatPassword !== passwordVar){
        FlashMessages.sendError("Passwords must be equal");
-       throw new Meteor.Error("Passwords must be equal");
+       Router.go('/register');
      }
 
      //Create the user
@@ -20,7 +20,7 @@ if(Meteor.isClient){
      }, function(error) {
        if (error) {
          FlashMessages.sendError(error.reason);
-         throw new Meteor.Error(error.reason)
+         Router.go('/register');
        } else {
            Router.go('/');
            FlashMessages.sendError("User created successfully!")
@@ -47,6 +47,7 @@ if(Meteor.isClient){
          FlashMessages.sendError(error.reason);
        }else{
          FlashMessages.sendError("Login success!");
+         Router.go('/dashboard');
        }
      });
 
