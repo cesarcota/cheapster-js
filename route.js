@@ -14,7 +14,7 @@ Router.route("/dashboard", function(){
   if(Meteor.user()){
     this.render("dashboard");
   }else{
-    this.render("/login");
+    this.render("login");
   }
 
 });
