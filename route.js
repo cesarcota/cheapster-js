@@ -1,4 +1,8 @@
 Router.route("/", function  (){
+  this.render("landingpage");
+});
+
+Router.route("/login", function  (){
   this.render("login");
 });
 
