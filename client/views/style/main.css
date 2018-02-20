@@ -1,0 +1,41 @@
+body {
+  font-family: sans-serif;
+  background-color: #315481;
+  background-image: linear-gradient(to bottom, #e5074b, #e5074b 150%);
+  background-attachment: fixed;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 14px;
+  color: white;
+  text-align: center;
+
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+img {
+    padding: 0;
+
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+
+    width:150px;
+    height:150px;
+    vertical-align: middle;
+
+
+}

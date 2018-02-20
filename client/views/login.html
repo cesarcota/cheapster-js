@@ -1,5 +1,7 @@
-<template  class="container" name ="login">
-  
+<template  class="container" class="body" name ="login">
+
+  <img src="http://localhost:3000/logo.png">
+
   <form>
     <input type="email"  name="loginEmail" placeholder="enter your email">
       <p>
@@ -7,8 +9,13 @@
       </p>
     <p>
       <input href ="#" type="submit" value="Login">
-      <a href="/register" class="button">Register</a>
+
     </p>
+
+  <p>
+    <a href="/register" class="button">Register</a>
+    </p>
+
     {{> flashMessages}}
 
   </form>
@@ -16,6 +23,7 @@
 
 <head>
   <title>Cheapster</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
