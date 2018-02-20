@@ -1,9 +1,8 @@
+if(Meteor.isClient){
 
 
-export const Groups = new Mongo.Collection('groups');
+  Template.newgroup.events({
 
-function addGroup(){
-    
+});
 
-    return false;
 }

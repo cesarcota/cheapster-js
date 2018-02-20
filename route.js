@@ -16,5 +16,12 @@ Router.route("/dashboard", function(){
   }else{
     this.render("login");
   }
+});
 
+  Router.route("/newgroup", function(){
+    if(Meteor.user()){
+      this.render("newgroup");
+    }else{
+      this.render("login");
+    }
 });

@@ -16,7 +16,8 @@ if(Meteor.isClient){
      //Create the user
      Accounts.createUser({
        email: emailVar,
-       password: passwordVar
+       password: passwordVar,
+       groups: ["coffee", "beer"]
      }, function(error) {
        if (error) {
          FlashMessages.sendError(error.reason);
