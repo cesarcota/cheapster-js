@@ -1,0 +1,34 @@
+<template name="hello">
+
+
+  {{#each allUsers}}
+  {{#if email !=""}}
+    {{email}}
+    {{/if}}
+  {{/each}}
+
+
+</template>
+
+
+<template name="dashboard">
+
+
+
+  Welcome {{> hello}}
+
+    <p><a href="#" class="logout">Logout</a></p>
+</template>
+
+
+<head>
+  <title>DASHBOARD</title>
+</head>
+
+<body>
+
+  <br/>
+  <br/>
+
+
+</body>
