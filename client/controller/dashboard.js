@@ -1,7 +1,6 @@
 if(Meteor.isClient){
 
-  Meteor.subscribe('allEmails');
-  Meteor.subscribe('allGroups');
+  var database = Meteor.subscribe('listUsers');
 
 
   Template.dashboard.events({
@@ -22,13 +21,20 @@ if(Meteor.isClient){
   });
 
   Template.hello.helpers({
-    allUsers(){ return Meteor.users.find({}); },
-    email(){ return this.emails[0].address; }
+    //allUsers(){ return Meteor.users.find({}); },
+    email(){ return Meteor.user().emails[0].address; }
   });
 
+
   Template.listgroups.helpers({
-    groups(){ return Meteor.user().groups; }
+    allUsers(){ return Meteor.users.find({}); },
+    group(){
+      console.log("NEXT");
+      console.log("USER. "+Meteor.user().emails[0].address);
+      return this.emails[0].address;
+    }
   });
+
 
 
 }

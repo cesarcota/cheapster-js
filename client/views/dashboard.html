@@ -1,16 +1,21 @@
 <template name="hello">
 
+<!--
   {{#each allUsers}}
   {{#if email !=""}}
     {{email}}
     {{/if}}
   {{/each}}
+-->
+{{email}}
 
 </template>
 
 <template name="listgroups">
+{{#each allUsers}}
+  {{group}}
+{{/each}}
 
-  {{groups}}
 
 </template>
 
