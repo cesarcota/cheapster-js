@@ -1,7 +1,7 @@
 if(Meteor.isClient){
 
  Template.register.events({
-   "submit form": function(event){
+   "submit .add-user": function(event){
      event.preventDefault();
      var emailVar = event.target.registerEmail.value;
      var passwordVar = event.target.registerPassword.value;
@@ -14,6 +14,12 @@ if(Meteor.isClient){
      }
 
      //Create the user
+     Meteor.call("addUser", {email: emailVar, password: passwordVar});
+     FlashMessages.sendSuccess("User created successfully");
+     Router.go('/');
+
+/*
+
      Accounts.createUser({
        email: emailVar,
        password: passwordVar,
@@ -27,6 +33,9 @@ if(Meteor.isClient){
            FlashMessages.sendError("User created successfully!")
        }
    });
+
+   */
+
      console.log("Form submitted.");
 
  }
@@ -42,6 +51,23 @@ if(Meteor.isClient){
      var emailVar = event.target.loginEmail.value;
      var passwordVar = event.target.loginPassword.value;
 
+     //Authentication
+     Meteor.call("findByEmail", emailVar, function(error, tempUser){
+       if(error){
+         FlashMessages.sendError("Not a valid email or password.");
+         return;
+       }else{
+         //This means that it entered here to do the Authentication
+         //Checks the password of the user
+         if(tempUser.password !== passwordVar){
+           FlashMessages.sendError("Not a valid email or password.");
+           return;
+         }
+       }
+     });
+
+
+/*
      //Perform the login action with a Meteor collection
      Meteor.loginWithPassword(emailVar, passwordVar, function(error){
        if(error){
@@ -51,6 +77,8 @@ if(Meteor.isClient){
          Router.go('/dashboard');
        }
      });
+
+     */
 
      console.log("Form submitted.");
    }

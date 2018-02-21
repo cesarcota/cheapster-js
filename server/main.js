@@ -3,9 +3,21 @@ import { Meteor } from 'meteor/meteor';
 Meteor.startup(function(){
   // code to run on server at startup
 
-  Meteor.publish('listUsers',function(){
-  // you should restrict this publication to only be available to admin users
-  return Meteor.users.find({},{fields: { email: 1, group: 1 }});
+Meteor.methods({
+  addUser: function(userData){
+
+    var userID = Users.insert(userData);
+    console.log("ID: "+userID);
+    return userID;
+
+    }
+});
+
+Meteor.methods({
+  findByEmail: function(emailVar){
+    var user = Users.findOne({email:emailVar});
+    return user;
+  }
 });
 
 
