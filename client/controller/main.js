@@ -10,13 +10,13 @@ if(Meteor.isClient){
      //Both passwords must be equal
      if(repeatPassword !== passwordVar){
        FlashMessages.sendError("Passwords must be equal");
-       Router.go('/register');
+       return;
      }
 
      //Create the user
      Meteor.call("addUser", {email: emailVar, password: passwordVar});
      FlashMessages.sendSuccess("User created successfully");
-     Router.go('/');
+     Router.go('/login');
 
 /*
 
@@ -57,15 +57,23 @@ if(Meteor.isClient){
          FlashMessages.sendError("Not a valid email or password.");
          return;
        }else{
-         //This means that it entered here to do the Authentication
-         //Checks the password of the user
-         if(tempUser.password !== passwordVar){
+         if(tempUser !== undefined){
+           console.log("EMAIL: "+tempUser.email);
+           console.log("PASS: "+tempUser.password);
+           //This means that it entered here to do the Authentication
+           //Checks the password of the user
+           if(tempUser.password !== passwordVar){
+             FlashMessages.sendError("Not a valid email or password.");
+             return;
+           }else{
+             console.log("EMAIL + PASS: "+tempUser.email+" "+tempUser.password);
+             Session.set("sessionUser", tempUser);
+             console.log("TEMPUSER: "+tempUser);
+             Router.go('/dashboard');
+           }
+         }else{
            FlashMessages.sendError("Not a valid email or password.");
            return;
-         }else{
-           Session.setDefault("sessionUser", tempUser);
-           
-           Router.go('/dashboard');
          }
        }
      });

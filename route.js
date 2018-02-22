@@ -19,13 +19,13 @@ Router.route("/dashboard", function(){
     console.log("SESSION: "+Session.get("sessionUser").email);
     this.render("dashboard");
   }else{
-    //console.log("SESSION: "+Session.get("sessionUser").email);
+    console.log("SESSION: "+Session.get("sessionUser"));
     this.render("login");
   }
 });
 
   Router.route("/newgroup", function(){
-    if(Meteor.user()){
+    if(Session.get("sessionUser") !== undefined){
       this.render("newgroup");
     }else{
       this.render("login");

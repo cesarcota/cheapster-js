@@ -7,7 +7,9 @@ if(Meteor.isClient){
 
     "click .logout": function (event){
       event.preventDefault();
-      Meteor.logout();
+      //To log out
+      Session.set("sessionUser", undefined);
+      Router.go("/login");
     },
 
     "click .newgroup": function (event){

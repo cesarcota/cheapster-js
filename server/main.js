@@ -16,6 +16,7 @@ Meteor.methods({
 Meteor.methods({
   findByEmail: function(emailVar){
     var user = Users.findOne({email:emailVar});
+    console.log("SERVER SIDE 1: "+user);
     return user;
   }
 });
