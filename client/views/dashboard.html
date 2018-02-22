@@ -5,10 +5,23 @@
 </template>
 
 <template name="listgroups">
-{{#each allUsers}}
-  {{group}}
-{{/each}}
 
+<table>
+  <tr>
+    <th>List of Groups</th>
+  </tr>
+
+    {{#each group}}
+    <tr data-value="{{index}}">
+      <a href="#" class="{{index}}">{{value}}</a>
+      <!--
+      <div class="item" data-value="{{index}}">{{value}}</div>
+    -->
+    </tr>
+    {{/each}}
+
+
+</table>
 
 </template>
 
@@ -28,7 +41,7 @@
 
 
 <head>
-  <title>DASHBOARD</title>
+  <title></title>
 </head>
 
 <body>

@@ -14,7 +14,7 @@ if(Meteor.isClient){
      }
 
      //Create the user
-     Meteor.call("addUser", {email: emailVar, password: passwordVar});
+     Meteor.call("addUser", {email: emailVar, password: passwordVar, groups:["beer", "coffee"]});
      FlashMessages.sendSuccess("User created successfully");
      Router.go('/login');
 
@@ -60,6 +60,7 @@ if(Meteor.isClient){
          if(tempUser !== undefined){
            console.log("EMAIL: "+tempUser.email);
            console.log("PASS: "+tempUser.password);
+           console.log("PASS INSERT: "+passwordVar);
            //This means that it entered here to do the Authentication
            //Checks the password of the user
            if(tempUser.password !== passwordVar){

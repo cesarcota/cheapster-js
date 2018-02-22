@@ -24,13 +24,9 @@ if(Meteor.isClient){
     email(){ return Session.get("sessionUser").email; }
   });
 
-  Template.listgroups.helpers({
-    //allGroups(){return Session.get("sessionUser").groups},
-    group(){
-      var groups = Session.get("sessionUser").groups;
-      return _.map(groups, function(value, index){
-        return {value: value, index: index};
-      });
+  Template.hello.helpers({
+    email:function(){
+      return;
     }
   });
 
