@@ -1,21 +1,34 @@
 <template name="hello">
 
-
+<!--
   {{#each allUsers}}
   {{#if email !=""}}
     {{email}}
     {{/if}}
   {{/each}}
+-->
+{{email}}
+
+</template>
+
+<template name="listgroups">
+{{#each allUsers}}
+  {{group}}
+{{/each}}
 
 
 </template>
 
 
 <template name="dashboard">
-
-
-
   Welcome {{> hello}}
+  <p>
+    {{> listgroups}}
+  </p>
+
+  <p>
+    <button type="button" class="newgroup">Create a new group</button>
+  </p>
 
     <p><a href="#" class="logout">Logout</a></p>
 </template>
@@ -26,9 +39,5 @@
 </head>
 
 <body>
-
-  <br/>
-  <br/>
-
 
 </body>
