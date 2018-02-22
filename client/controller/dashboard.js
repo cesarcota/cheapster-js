@@ -19,12 +19,10 @@ if(Meteor.isClient){
 
   });
 
-/*
+
   Template.hello.helpers({
-    //allUsers(){ return Meteor.users.find({}); },
-    email(){ return Meteor.user().emails[0].address; }
+    email(){ return Session.get("sessionUser").email; }
   });
-  */
 
   Template.hello.helpers({
     email:function(){
