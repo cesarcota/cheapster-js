@@ -62,6 +62,10 @@ if(Meteor.isClient){
          if(tempUser.password !== passwordVar){
            FlashMessages.sendError("Not a valid email or password.");
            return;
+         }else{
+           Session.setDefault("sessionUser", tempUser);
+           
+           Router.go('/dashboard');
          }
        }
      });

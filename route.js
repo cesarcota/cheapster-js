@@ -11,9 +11,11 @@ Router.route("/addgroup", function(){
 });
 
 Router.route("/dashboard", function(){
-  if(Meteor.user()){
+  if(Session.get("sessionUser") !== undefined){
+    console.log("SESSION: "+Session.get("sessionUser").email);
     this.render("dashboard");
   }else{
+    //console.log("SESSION: "+Session.get("sessionUser").email);
     this.render("login");
   }
 });
