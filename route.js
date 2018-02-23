@@ -26,8 +26,10 @@ Router.route("/dashboard", function(){
 
   Router.route("/newgroup", function(){
     if(Session.get("sessionUser") !== undefined){
+      console.log("SESSION NEWGROUP: "+Session.get("sessionUser").email);
       this.render("newgroup");
     }else{
+      console.log("SESSION NEWGROUP: "+Session.get("sessionUser"));
       this.render("login");
     }
 });

@@ -21,13 +21,15 @@ if(Meteor.isClient){
 
 
   Template.hello.helpers({
-    email(){ return Session.get("sessionUser").email; }
+    displayName(){ return Session.get("sessionUser").displayName; }
   });
 
   Template.listgroups.helpers({
     //allGroups(){return Session.get("sessionUser").groups},
     group(){
+      /*
       var groups = Session.get("sessionUser").groups;
+      */
       return _.map(groups, function(value, index){
         return {value: value, index: index};
       });

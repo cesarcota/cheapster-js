@@ -6,6 +6,8 @@ if(Meteor.isClient){
      var emailVar = event.target.registerEmail.value;
      var passwordVar = event.target.registerPassword.value;
      var repeatPassword = event.target.repeatPassword.value;
+     var displayName = event.target.registerDisplayName.value;
+     var customTypes=["Beer", "Coffee", "Meals","Other"];
 
      //Both passwords must be equal
      if(repeatPassword !== passwordVar){
@@ -14,7 +16,7 @@ if(Meteor.isClient){
      }
 
      //Create the user
-     Meteor.call("addUser", {email: emailVar, password: passwordVar, groups:["beer", "coffee"]});
+     Meteor.call("addUser", {email: emailVar, password: passwordVar, displayName: displayName, customTypes: customTypes});
      FlashMessages.sendSuccess("User created successfully");
      Router.go('/login');
 
