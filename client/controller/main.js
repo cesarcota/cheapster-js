@@ -18,23 +18,6 @@ if(Meteor.isClient){
      FlashMessages.sendSuccess("User created successfully");
      Router.go('/login');
 
-/*
-
-     Accounts.createUser({
-       email: emailVar,
-       password: passwordVar,
-       groups: ["coffee", "beer"]
-     }, function(error) {
-       if (error) {
-         FlashMessages.sendError(error.reason);
-         Router.go('/register');
-       } else {
-           Router.go('/');
-           FlashMessages.sendError("User created successfully!")
-       }
-   });
-
-   */
 
      console.log("Form submitted.");
 
@@ -79,19 +62,6 @@ if(Meteor.isClient){
        }
      });
 
-
-/*
-     //Perform the login action with a Meteor collection
-     Meteor.loginWithPassword(emailVar, passwordVar, function(error){
-       if(error){
-         FlashMessages.sendError(error.reason);
-       }else{
-         FlashMessages.sendError("Login success!");
-         Router.go('/dashboard');
-       }
-     });
-
-     */
 
      console.log("Form submitted.");
    }
