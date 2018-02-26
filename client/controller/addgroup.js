@@ -8,31 +8,20 @@ if(Meteor.isClient){
       var category;
       //if there is a new group type, add it to the group
       if(Session.get("newType") === true){
-
         category = event.target.newType.value;
-
         var typeArray = Session.get("sessionUser").customTypes;
         console.log("TYPE ARRAY"+typeArray);
         typeArray.push(category);
         console.log("ARRAY: "+typeArray);
-
         console.log("CATEGORY (TRUE): "+category);
-
       }else{
         category = Session.get("chosenType");
-
         console.log("CATEGORY (FALSE): "+category);
       }
-
       console.log("CATEGORY: "+category);
-
       //Add the new group to the database
       Meteor.call("addGroup", {groupName: groupName, category: category, users: Session.get("sessionUser")});
-
-
   }
-
-
 });
 
 Template.categories.helpers({
@@ -47,12 +36,9 @@ Template.categories.events({
         var category = $(event.currentTarget).val();
 
         if(category === "Other"){
-
           Session.set("newType", true);
-
         }else{
           Session.set("newType", false);
-
           //This will store the value chosen by the user in the select command
           Session.set("chosenType", category);
         }

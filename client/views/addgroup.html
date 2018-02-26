@@ -2,63 +2,29 @@
 <template name='newgroup'>
 
   <h1>Create your group</h1>
-
   <form class="addGroup">
     <input type="text"  name="groupName" placeholder="enter the group name">
-
-
-  {{> categories}}
-
-  {{#if addNewType}}
-
-      <input type="text"  name="newType" placeholder="enter the type of the group">
-
-  {{/if}}
-
+      {{> categories}}
+      {{#if addNewType}}
+        <input type="text"  name="newType" placeholder="enter the type of the group">
+      {{/if}}
     <p>
-    <input href ="/dashboard" type="submit" value="Create Group">
-  </p>
-
-
-
+      <input href ="/dashboard" type="submit" value="Create Group">
+    </p>
   </form>
-
 </template>
 
 <template name="categories">
-
   <p>
-  <select id="category-select">
-  <option disabled="disabled" selected="selected">Please Select</option>
-  {{#each categories}}
-      <option value="{{this}}">{{this}}</option>
-  {{/each}}
-
-</select>
+    <select id="category-select">
+      <option disabled="disabled" selected="selected">Please Select</option>
+        {{#each categories}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+  </select>
   </p>
-
-    
-
-
 </template>
 
 <template name="otherGroupOption">
-
-
-
+  
 </template>
-
-
-
-
-<head>
-  <title></title>
-</head>
-
-<body>
-
-
-
-
-
-</body>
