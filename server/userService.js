@@ -19,6 +19,8 @@ Meteor.methods({
 
 });
 
+
+
 Meteor.methods({
   findGroups: function(user){
     console.log("USERSERVICE: "+user.email);

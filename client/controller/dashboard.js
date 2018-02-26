@@ -25,15 +25,17 @@ if(Meteor.isClient){
   });
 
   Template.listgroups.helpers({
+
     //allGroups(){return Session.get("sessionUser").groups},
     group(){
-      /*
-      var groups = Session.get("sessionUser").groups;
-      */
-      return _.map(groups, function(value, index){
-        return {value: value, index: index};
-      });
+      var map = Groups.find({users: Session.get("sessionUser")}).fetch();
+
+      //console.log("GROUP NAMES: "+map[0].groupName);
+
+      return Groups.find({users: Session.get("sessionUser")}).fetch();
+
     }
+
   });
 
 

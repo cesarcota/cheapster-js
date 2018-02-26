@@ -6,10 +6,20 @@ Meteor.methods({
     console.log("GROUP NAME: "+groupData.groupName+" GROUP ID: "+groupId);
     console.log("GROUP TYPE: "+groupData.category);
     console.log("GROUP USERS: "+groupData.users.displayName);
-    return groupId;
+    //CHECK THIS TOMORROW
+    console.log("GROUP Data: "+groupData);
+return groupId;
 
     }
 });
+
+
+Meteor.methods({
+  findGroupsByUser: function(user){
+    var groups = Groups.find({users: user}).fetch();
+    return groups;
+  }
+})
 
 /*
 Meteor.methods({
