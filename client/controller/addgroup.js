@@ -18,15 +18,31 @@ if(Meteor.isClient){
         category = Session.get("chosenType");
         console.log("CATEGORY (FALSE): "+category);
       }
-      console.log("CATEGORY: "+category);
+
+      //Checks if the fields of the group name and type are filled
+      if(groupName==="" || groupName===null){
+        FlashMessages.sendError("The group name must be filled.");
+        return;
+      }
+
+      //Checks if the type is chosenType
+      if(category === undefined){
+        FlashMessages.sendError("The type must be chosen.");
+        return;
+      }
+
       //Add the new group to the database
       Meteor.call("addGroup", {groupName: groupName, category: category, users: Session.get("sessionUser")});
+
+      Router.go('/dashboard');
   }
 });
 
 Template.categories.helpers({
     categories: function(){
+      //Reset the variables
       Session.set("newType",false);
+      Session.set("chosenType",undefined);
         return Session.get("sessionUser").customTypes;
     }
 });
