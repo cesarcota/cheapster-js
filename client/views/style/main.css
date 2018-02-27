@@ -1,5 +1,7 @@
 body {
-  font-family: sans-serif;
+
+  font-family: 'Palanquin Dark', sans-serif;
+
   background-color: #315481;
   background-image: linear-gradient(to bottom, #e5074b, #e5074b 150%);
   background-attachment: fixed;
@@ -13,17 +15,30 @@ body {
   padding: 0;
   margin: 0;
 
-  font-size: 14px;
+  font-size: 24px;
   color: white;
-  text-align: center;
+  text-align: center !important;
+
+
 
 }
 
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh;
+display:grid;
+    align-items: center;
+}
+
+
+
 html, body {
+
     height: 100%;
     margin: 0;
     padding: 0;
     vertical-align: middle;
+
 }
 
 img {
@@ -41,15 +56,10 @@ img {
 }
 
 .img2 {
-    padding: 0;
+  width:100%;
+height:auto;
+vertical-align:middle;
 
-    margin: 0 auto;
-    max-height: 100%;
-    max-width: 100%;
-
-    width:325px;
-    height:325px;
-    vertical-align: middle;
 }
 
 .button1 {
@@ -59,7 +69,27 @@ img {
   font-size: 24px;
 }
 
-.a{
-  color: white;
-  font-size: 150%;
+a{
+  text-decoration: none;
+  align-self: center;
+  text-decoration: none;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  padding: 12px 53px 12px 23px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  text-indent: 8%;
+  font-size: 22px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  position: relative;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
