@@ -25,10 +25,7 @@ if(Meteor.isClient){
 
     //allGroups(){return Session.get("sessionUser").groups},
     groupList(){
-      var map = Groups.find({users: Session.get("sessionUser")}).fetch();
-
       return Groups.find({users: Session.get("sessionUser")}).fetch();
-
     }
 
   });
@@ -42,6 +39,7 @@ if(Meteor.isClient){
             ///console.log("GROUP NAME: ", group.groupName);
             //Stores this group in a session variable so it can be used in the next view
             Session.set("sessionGroup", group);
+            Router.go("/group-status");
           }
         })
       }

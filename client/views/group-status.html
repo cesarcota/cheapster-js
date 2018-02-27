@@ -1,0 +1,30 @@
+<template name="GroupName">
+  {{groupName}}
+</template>
+
+
+<template name= "listUsers">
+  <table>
+    <tr>
+      <th>Users</th>
+    </tr>
+
+      {{#each userList}}
+        <tr>
+          {{displayName}}
+        </tr>
+
+  {{/each}}
+
+  </table>
+</template>
+
+
+
+
+
+
+<template name="group-status">
+  {{> GroupName}}
+  {{> listUsers}}
+</template>
