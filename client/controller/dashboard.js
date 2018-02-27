@@ -52,7 +52,13 @@ if(Meteor.isClient){
   Template.listusers.rendered = function(){
     Meteor.call("listUsers", Session.get("sessionUser"), function(error,result){
         if(!error){
-          Session.set("listAllUsers", result);
+          var names="";
+          result.forEach(function(element){
+            //console.log("USERS IN GROUP: "+names+" "+element.users.displayName);
+            names= names+" "+element.users.displayName;
+            //console.log("USERS IN GROUP: ",element.users.displayName);
+          });
+          Session.set("listAllUsers", names);
         }
       });
   }

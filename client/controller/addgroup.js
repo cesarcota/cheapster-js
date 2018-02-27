@@ -14,6 +14,7 @@ if(Meteor.isClient){
         typeArray.push(category);
         console.log("ARRAY: "+typeArray);
         console.log("CATEGORY (TRUE): "+category);
+        //FAZER O UPDATE AO USER
       }else{
         category = Session.get("chosenType");
         console.log("CATEGORY (FALSE): "+category);
@@ -43,7 +44,7 @@ Template.categories.helpers({
       //Reset the variables
       Session.set("newType",false);
       Session.set("chosenType",undefined);
-        return Session.get("sessionUser").customTypes;
+      return Session.get("sessionUser").customTypes;
     }
 });
 
@@ -72,20 +73,7 @@ Template.newgroup.helpers({
 });
 
 //Template to add new categories to the user memory, that he adds
-Template.otherGroupOption.events({
-/*
-  "submit .add-custom-type": function(event){
-    event.preventDefault();
-    var newCustomType = event.target.newType.value;
-    Session.set("typeToAdd", newCustomType);
-    console.log("NEW TYPE IN SESSION: "+newCustomType);
-    //Session.get("sessionUser").customTypes.push(newCustomType);
-    //console.log("ARRAY: "+Session.get("sessionUser").customTypes);
 
-}
-*/
-
-});
 
 
 }

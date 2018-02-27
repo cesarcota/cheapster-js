@@ -26,13 +26,7 @@ Meteor.methods({
 Meteor.methods({
   listUsers: function(user){
     var groups = Groups.find({users: user}).fetch();
-    var names="";
-    groups.forEach(function(element){
-      //console.log("USERS IN GROUP: "+names+" "+element.users.displayName);
-      names= names+" "+element.users.displayName;
-      //console.log("USERS IN GROUP: ",element.users.displayName);
-    });
-    return names;
+    return groups;
 
     }
 })
