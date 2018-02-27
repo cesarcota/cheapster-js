@@ -15,6 +15,11 @@ if(Meteor.isClient){
         console.log("ARRAY: "+typeArray);
         console.log("CATEGORY (TRUE): "+category);
         //FAZER O UPDATE AO USER
+        Meteor.call("updateUser",Session.get("sessionUser"),typeArray,function(error,result){
+          if(!error){
+            console.log("CHECK");
+          }
+        });
       }else{
         category = Session.get("chosenType");
         console.log("CATEGORY (FALSE): "+category);
