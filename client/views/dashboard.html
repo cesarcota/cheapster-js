@@ -7,15 +7,24 @@
     <tr>
       <th>List of Groups</th>
     </tr>
+
       {{#each group}}
+
+
         <tr data-value="{{index}}">
-          <a href="#" class="{{index}}">{{value}}</a>
-          <!--
-          <div class="item" data-value="{{index}}">{{value}}</div>
-        -->
+
+          <a href="#" class="{{index}}">{{groupName}} and {{_id}}</a>
+
         </tr>
+
       {{/each}}
+
+
+
   </table>
+
+
+
 </template>
 
 <template name="dashboard">
