@@ -3,13 +3,33 @@ import {Meteor} from 'meteor/meteor';
 Meteor.methods({
   addGroup: function(groupData){
     var groupId = Groups.insert(groupData);
-    console.log("GROUP NAME: "+groupData.groupName+" GROUP ID: "+groupId);
-    console.log("GROUP TYPE: "+groupData.category);
-    console.log("GROUP USERS: "+groupData.users.displayName);
     return groupId;
 
     }
 });
+
+
+Meteor.methods({
+  findGroupsByUser: function(user){
+    var groups = Groups.find({users: user}).fetch();
+    return groups;
+  }
+});
+
+Meteor.methods({
+  findGroupById: function(groupId){
+    var group = Groups.findOne({_id: groupId});
+    return group;
+  }
+});
+
+Meteor.methods({
+  listUsers: function(user){
+    var groups = Groups.find({users: user}).fetch();
+    return groups;
+
+    }
+})
 
 /*
 Meteor.methods({

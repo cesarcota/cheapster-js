@@ -12,6 +12,9 @@
       <input href ="/dashboard" type="submit" value="Create Group">
     </p>
   </form>
+
+  {{> flashMessages}}
+
 </template>
 
 <template name="categories">
@@ -23,8 +26,4 @@
         {{/each}}
   </select>
   </p>
-</template>
-
-<template name="otherGroupOption">
-  
 </template>

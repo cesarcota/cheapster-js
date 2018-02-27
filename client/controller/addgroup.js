@@ -14,20 +14,37 @@ if(Meteor.isClient){
         typeArray.push(category);
         console.log("ARRAY: "+typeArray);
         console.log("CATEGORY (TRUE): "+category);
+        //FAZER O UPDATE AO USER
       }else{
         category = Session.get("chosenType");
         console.log("CATEGORY (FALSE): "+category);
       }
-      console.log("CATEGORY: "+category);
+
+      //Checks if the fields of the group name and type are filled
+      if(groupName==="" || groupName===null){
+        FlashMessages.sendError("The group name must be filled.");
+        return;
+      }
+
+      //Checks if the type is chosenType
+      if(category === undefined){
+        FlashMessages.sendError("The type must be chosen.");
+        return;
+      }
+
       //Add the new group to the database
       Meteor.call("addGroup", {groupName: groupName, category: category, users: Session.get("sessionUser")});
+
+      Router.go('/dashboard');
   }
 });
 
 Template.categories.helpers({
     categories: function(){
+      //Reset the variables
       Session.set("newType",false);
-        return Session.get("sessionUser").customTypes;
+      Session.set("chosenType",undefined);
+      return Session.get("sessionUser").customTypes;
     }
 });
 
@@ -56,20 +73,7 @@ Template.newgroup.helpers({
 });
 
 //Template to add new categories to the user memory, that he adds
-Template.otherGroupOption.events({
-/*
-  "submit .add-custom-type": function(event){
-    event.preventDefault();
-    var newCustomType = event.target.newType.value;
-    Session.set("typeToAdd", newCustomType);
-    console.log("NEW TYPE IN SESSION: "+newCustomType);
-    //Session.get("sessionUser").customTypes.push(newCustomType);
-    //console.log("ARRAY: "+Session.get("sessionUser").customTypes);
 
-}
-*/
-
-});
 
 
 }
