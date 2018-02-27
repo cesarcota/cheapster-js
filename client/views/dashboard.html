@@ -1,5 +1,6 @@
 <template name="hello">
   {{displayName}}
+
 </template>
 
 <template name="listgroups">
@@ -8,18 +9,17 @@
       <th>List of Groups</th>
     </tr>
 
-      {{#each group}}
+      {{#each groupList}}
 
 
         <tr data-value="{{index}}">
 
-          <a href="#" class="{{index}}">{{groupName}} and {{_id}}</a>
+          <a href="#" data-value="{{_id}}">{{groupName}} ({{> listusers}} ) </a>
+
 
         </tr>
 
       {{/each}}
-
-
 
   </table>
 
@@ -27,7 +27,12 @@
 
 </template>
 
+<template name="listusers">
+  {{showUsers}}
+</template>
+
 <template name="dashboard">
+
   Welcome {{> hello}}
     <p>
       {{> listgroups}}

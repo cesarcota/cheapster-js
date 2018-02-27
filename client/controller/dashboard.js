@@ -2,9 +2,6 @@ if(Meteor.isClient){
 
   Template.dashboard.events({
 
-    //allUsers(){ return Meteor.users.find({}); },
-    //email(){ return this.emails[0].address; },
-
     "click .logout": function (event){
       event.preventDefault();
       //To log out
@@ -27,13 +24,26 @@ if(Meteor.isClient){
   Template.listgroups.helpers({
 
     //allGroups(){return Session.get("sessionUser").groups},
-    group(){
+    groupList(){
       var map = Groups.find({users: Session.get("sessionUser")}).fetch();
-
-      //console.log("GROUP NAMES: "+map[0].groupName);
 
       return Groups.find({users: Session.get("sessionUser")}).fetch();
 
+    }
+
+  });
+
+  Template.listusers.rendered = function(){
+    Meteor.call("listUsers", Session.get("sessionUser"), function(error,result){
+        if(!error){
+          Session.set("listAllUsers", result);
+        }
+      });
+  }
+
+  Template.listusers.helpers({
+    showUsers(){
+      return Session.get("listAllUsers");
     }
 
   });
