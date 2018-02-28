@@ -11,6 +11,12 @@ Template.register.events({
       FlashMessages.sendError("Passwords must be equal");
       return;
     }
+
+    //The password must have at least 5 characters
+    if(passwordVar.length<5){
+      FlashMessages.sendError("Passwords must have at least 5 characters");
+      return;
+    }
     //Create the user
     Meteor.call("addUser", {email: emailVar, password: passwordVar, displayName: displayName, customTypes: customTypes});
     FlashMessages.sendSuccess("User created successfully");

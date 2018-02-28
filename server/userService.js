@@ -24,15 +24,9 @@ Meteor.methods({
   }
 });
 
+
 Meteor.methods({
-  updateUser:function(user, categories){
-    Users.update(user, {$set:{customTypes:categories}},function(error)){
-      if(error){
-        console.log("ERROR");
-      }else{
-        console.log("RIGHT");
-        console.log("USER: ",user.customTypes);
-      }
-    }
+  updateUser:function(userId, categories){
+    Users.update({_id:userId}, {$set:{customTypes:categories}});
   }
-})
+});

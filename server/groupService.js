@@ -10,8 +10,9 @@ Meteor.methods({
 
 
 Meteor.methods({
-  findGroupsByUser: function(user){
-    var groups = Groups.find({users: user}).fetch();
+  findGroupsByUser: function(userId){
+    //CHECK THIS
+    var groups = Groups.find({"users._id": userId}).fetch();
     return groups;
   }
 });
@@ -29,7 +30,7 @@ Meteor.methods({
     return groups;
 
     }
-})
+});
 
 /*
 Meteor.methods({

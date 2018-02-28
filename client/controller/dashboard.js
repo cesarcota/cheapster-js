@@ -21,13 +21,23 @@ if(Meteor.isClient){
     displayName(){ return Session.get("sessionUser").displayName; }
   });
 
+  Template.listgroups.rendered=function(){
+    Meteor.call("findGroupsByUser",Session.get("sessionUser")._id,function(error,groups){
+      if(!error){
+        console.log("LIST OF GROUPS IN USER: ", groups);
+        Session.set("groupList", groups);
+      }
+    });
+  }
+
   Template.listgroups.helpers({
 
     //allGroups(){return Session.get("sessionUser").groups},
     groupList(){
-      var map = Groups.find({users: Session.get("sessionUser")}).fetch();
+      //var map = Groups.find({users: Session.get("sessionUser")}).fetch();
 
-      return Groups.find({users: Session.get("sessionUser")}).fetch();
+      //return Groups.find({users: Session.get("sessionUser")}).fetch();
+      return Session.get("groupList");
 
     }
 
@@ -39,7 +49,7 @@ if(Meteor.isClient){
         var groupId = $(event.currentTarget).val();
         Meteor.call("findGroupById", groupId,function(error,group){
           if(!error){
-            ///console.log("GROUP NAME: ", group.groupName);
+
             //Stores this group in a session variable so it can be used in the next view
             Session.set("sessionGroup", group);
           }

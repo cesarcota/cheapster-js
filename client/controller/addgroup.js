@@ -11,15 +11,25 @@ if(Meteor.isClient){
         category = event.target.newType.value;
         var typeArray = Session.get("sessionUser").customTypes;
         console.log("TYPE ARRAY"+typeArray);
-        typeArray.push(category);
+        typeArray.splice(typeArray.length-1,0,category);
         console.log("ARRAY: "+typeArray);
         console.log("CATEGORY (TRUE): "+category);
         //FAZER O UPDATE AO USER
-        Meteor.call("updateUser",Session.get("sessionUser"),typeArray,function(error,result){
+
+        Meteor.call("updateUser",Session.get("sessionUser")._id,typeArray,function(error,result){
           if(!error){
-            console.log("CHECK");
+            console.log("CHECK ARRAY: ", typeArray);
+            console.log("USER EMAIL: ",Session.get("sessionUser").email);
+
+            Meteor.call("findByEmail",Session.get("sessionUser").email,function(error,user){
+              if(!error){
+                console.log("CUSTOM TYPES: "+user.customTypes);
+              }
+            });
+
           }
         });
+
       }else{
         category = Session.get("chosenType");
         console.log("CATEGORY (FALSE): "+category);
