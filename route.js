@@ -33,3 +33,13 @@ Router.route("/dashboard", function(){
       this.render("login");
     }
 });
+
+Router.route("/group-status", function(){
+  if(Session.get("sessionUser") !== undefined){
+    console.log("SESSION: "+Session.get("sessionUser").email);
+    this.render("group-status");
+  }else{
+    console.log("SESSION: "+Session.get("sessionUser"));
+    this.render("login");
+  }
+});

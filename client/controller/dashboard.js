@@ -52,6 +52,7 @@ if(Meteor.isClient){
 
             //Stores this group in a session variable so it can be used in the next view
             Session.set("sessionGroup", group);
+            Router.go("/group-status");
           }
         })
       }

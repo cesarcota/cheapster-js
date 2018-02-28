@@ -32,6 +32,7 @@ Meteor.methods({
     }
 });
 
+
 /*
 Meteor.methods({
   findByEmail: function(emailVar){
