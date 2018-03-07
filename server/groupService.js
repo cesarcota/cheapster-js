@@ -25,8 +25,8 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  listUsers: function(user){
-    var groups = Groups.find({users: user}).fetch();
+  listUsers: function(userId){
+    var groups = Groups.find({"users._id": userId}).fetch();
     return groups;
 
     }

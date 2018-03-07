@@ -24,7 +24,6 @@ if(Meteor.isClient){
   Template.listgroups.rendered=function(){
     Meteor.call("findGroupsByUser",Session.get("sessionUser")._id,function(error,groups){
       if(!error){
-        console.log("LIST OF GROUPS IN USER: ", groups);
         Session.set("groupList", groups);
       }
     });
@@ -61,9 +60,11 @@ if(Meteor.isClient){
   //The next 2 templates are used to show the uses in each group, together with the name of
   //the group
   Template.listusers.rendered = function(){
-    Meteor.call("listUsers", Session.get("sessionUser"), function(error,result){
+    Meteor.call("listUsers", Session.get("sessionUser")._id, function(error,result){
         if(!error){
           var names="";
+          //CHANGE THIS
+          console.log("GROUPS: ", result);
           result.forEach(function(element){
             //console.log("USERS IN GROUP: "+names+" "+element.users.displayName);
             names= names+" "+element.users.displayName;
