@@ -1,37 +1,34 @@
-import {Meteor} from 'meteor/meteor';
+import { Meteor } from "meteor/meteor";
 
 Meteor.methods({
-  addGroup: function(groupData){
-    var groupId = Groups.insert(groupData);
-    return groupId;
-
+    addGroup: function(groupData) {
+        var groupId = Groups.insert(groupData);
+        return groupId;
     }
 });
 
-
 Meteor.methods({
-  findGroupsByUser: function(userId){
-    //CHECK THIS
-    var groups = Groups.find({"users._id": userId}).fetch();
-    return groups;
-  }
-});
-
-Meteor.methods({
-  findGroupById: function(groupId){
-    var group = Groups.findOne({_id: groupId});
-    return group;
-  }
-});
-
-Meteor.methods({
-  listUsers: function(userId){
-    var groups = Groups.find({"users._id": userId}).fetch();
-    return groups;
-
+    findGroupsByUser: function(userId) {
+        //CHECK THIS
+        var groups = Groups.find({ "users._id": userId }).fetch();
+        console.log("groups: ", groups);
+        return groups;
     }
 });
 
+Meteor.methods({
+    findGroupById: function(groupId) {
+        var group = Groups.findOne({ _id: groupId });
+        return group;
+    }
+});
+
+Meteor.methods({
+    listUsers: function(userId) {
+        var groups = Groups.find({ "users._id": userId }).fetch();
+        return groups;
+    }
+});
 
 /*
 Meteor.methods({

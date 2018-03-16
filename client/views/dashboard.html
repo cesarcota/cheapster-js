@@ -12,7 +12,7 @@
 
         <tr data-value="{{index}}">
 
-          <option href="#" class="select-group" value="{{_id}}">{{groupName}} ({{> listusers}} )</option>
+          <option href="#" class="select-group" value="{{_id}}">{{groupName}} ({{userNames}} )</option>
           <!--
           <a href="#" class="select-group" value="{{_id}}">{{groupName}} ({{> listusers}} ) </a>
 -->
@@ -23,9 +23,6 @@
   </table>
 </template>
 
-<template name="listusers">
-  {{showUsers}}
-</template>
 
 <template name="dashboard">
   Welcome {{> hello}}
