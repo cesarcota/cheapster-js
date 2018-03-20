@@ -1,0 +1,15 @@
+<template name= "listUsers">
+        <table>
+          <tr>
+            <th>Users</th>
+          </tr>
+      
+            {{#each userList}}
+              <tr>
+                {{displayName}}
+              </tr>
+      
+        {{/each}}
+      
+        </table>
+      </template>

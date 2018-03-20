@@ -1,17 +1,24 @@
 
-<template name='newgroup'>
+<template name="newgroup">
 
   <h1>Create your group</h1>
-  <form class="addGroup">
-    <input type="text"  name="groupName" placeholder="enter the group name">
+  
+    <input type="text"  id="groupName" class="groupName" placeholder="enter the group name">
       {{> categories}}
       {{#if addNewType}}
-        <input type="text"  name="newType" placeholder="enter the type of the group">
+        <input type="text"  id="newType" placeholder="enter the type of the group">
       {{/if}}
+
+      {{> addFriend}}
+
     <p>
-      <input href ="/dashboard" type="submit" value="Create Group">
+      <button href ="#" class="addGroup" value="Create Group">Create Group</button>
     </p>
-  </form>
+  
+
+  
+
+  
 
   {{> flashMessages}}
 
@@ -22,8 +29,40 @@
     <select id="category-select">
       <option disabled="disabled" selected="selected">Please Select</option>
         {{#each categories}}
-          <option value="{{this}}">{{this}}</option>
+          <option value="{{this}}">{{this}} </option>
         {{/each}}
   </select>
   </p>
+</template>
+
+<template name="addFriend">
+
+    
+        <p>
+          Add a friend
+        </p>
+        <input type="text" id="friendEmail" placeholder="enter your friend email">
+        <p>
+          <br>
+          <button href="#" class="addFriend" value="Add Friend">
+              Add Friend
+          </button>
+      </p>
+     
+
+      <table>
+        <tr>
+          <th>
+            Your Friends
+          </th>
+        </tr>
+        {{#each showFriends}}
+        <tr>
+          <td>
+            {{this}} <button id="{{this}}" class="deleteFriend">X</button>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+
 </template>

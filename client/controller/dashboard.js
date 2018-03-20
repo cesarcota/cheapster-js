@@ -63,8 +63,9 @@ Template.listgroups.events({
         Meteor.call("findGroupById", groupId, function(error, group) {
             if (!error) {
                 //Stores this group in a session variable so it can be used in the next view
+                console.log("ID: ", groupId);
                 Session.set("sessionGroup", group);
-                Router.go("/group-status");
+                Router.go("/group-status/" + groupId);
             }
         });
     }
