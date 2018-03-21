@@ -1,0 +1,34 @@
+<template name="eventBoard">
+
+<table>
+    <tr>
+        <td>
+            Present
+        </td>
+        <td>
+            Users
+        </td>
+        <td>
+            Who paid?
+        </td>
+    </tr>
+    
+    
+    <form class="eventTable">
+        {{#each usersTable}}
+            <tr>
+                    <input id="{{_id}}" class="skipRound" checked="checked" type="checkbox">
+                    {{displayName}}
+                    <input type="radio" id="{{email}}" class="payedRound" name="payed" value="{{displayName}}">
+
+            </tr>
+        {{/each}}
+    </form>
+</table>
+
+<p>
+    <button class="createEvent">Pay Round</button>
+
+</p>
+
+</template>

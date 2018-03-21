@@ -44,6 +44,26 @@ Router.route("/group-status/:_id", function() {
     }
 });
 
+Router.route("/group-status/:_id/event", function() {
+    if (Session.get("sessionUser") === undefined) {
+        this.render("/login");
+    } else {
+        Meteor.call(
+            "findGroupById",
+            this.params._id,
+            function(error, result) {
+                if (!error) {
+                    this.render("eventBoard", {
+                        data: function() {
+                            return result;
+                        }
+                    });
+                }
+            }.bind(this)
+        );
+    }
+});
+
 Router.route("/newgroup", function() {
     if (Session.get("sessionUser") !== undefined) {
         console.log("SESSION NEWGROUP: " + Session.get("sessionUser").email);
@@ -53,15 +73,3 @@ Router.route("/newgroup", function() {
         this.render("login");
     }
 });
-
-/*
-Router.route("/group-status", function(){
-  if(Session.get("sessionUser") !== undefined){
-    console.log("SESSION: "+Session.get("sessionUser").email);
-    this.render("group-status");
-  }else{
-    console.log("SESSION: "+Session.get("sessionUser"));
-    this.render("login");
-  }
-});
-*/

@@ -52,6 +52,7 @@ Template.listgroups.rendered = function() {
 
 Template.listgroups.helpers({
     groupList() {
+        console.log("GROUP LIST: ", Session.get("groupList"));
         return Session.get("groupList");
     }
 });
