@@ -27,5 +27,9 @@ Meteor.methods({
             { _id: groupId },
             { $set: { users: users, rounds: rounds } }
         );
+    },
+
+    addFriend: function(groupId, friends) {
+        Groups.update({ _id: groupId }, { $set: { users: friends } });
     }
 });

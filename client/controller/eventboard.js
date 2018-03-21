@@ -30,13 +30,15 @@ Template.eventBoard.events({
                 //Increase the number of rounds in the user
                 element.roundsPresent += 1;
             }
-            //This is to determine which one is the person who payed and update their accuracy
+            //This is to determine which one is the person who payed
             if (payed === element._id) {
                 element.payedRounds += 1;
-                var tempAccuracy = element.accuracy;
-                tempAccuracy = element.payedRounds / (groupRounds + 1);
-                element.accuracy = Math.round(tempAccuracy * 100) / 100;
             }
+            //Update their accuracy
+            var tempAccuracy = element.accuracy;
+            tempAccuracy = element.payedRounds / element.roundsPresent;
+
+            element.accuracy = Math.round(tempAccuracy * 100) / 100;
         });
 
         //Increase the number of rounds of the group
