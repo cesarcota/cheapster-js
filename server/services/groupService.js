@@ -20,16 +20,12 @@ Meteor.methods({
     listUsers: function(userId) {
         var groups = Groups.find({ "users._id": userId }).fetch();
         return groups;
+    },
+
+    updateGroupUsers: function(groupId, users, rounds) {
+        Groups.update(
+            { _id: groupId },
+            { $set: { users: users, rounds: rounds } }
+        );
     }
 });
-
-/*
-Meteor.methods({
-  findByEmail: function(emailVar){
-    var user = Users.findOne({email:emailVar});
-    console.log("SERVER SIDE 1: "+user);
-    return user;
-  }
-
-});
-*/

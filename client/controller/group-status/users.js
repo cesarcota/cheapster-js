@@ -1,10 +1,8 @@
 Template.listUsers.helpers({
     userList() {
-        //var  usersList =  [];
-        //usersList.splice(0,0,Session.get("sessionGroup").users);
-        var usersList = Session.get("sessionGroup").users;
+        var usersList = this.users;
 
-        console.log("users ", usersList);
+        console.log("users ", this);
         return usersList;
     }
 });

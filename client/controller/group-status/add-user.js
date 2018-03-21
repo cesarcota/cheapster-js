@@ -1,5 +1,6 @@
 Template.addUsersToGroup.events({
     "click .addUser": function(event) {
-        //This goes to a new view so it will add new users to the group
+        var groupId = this._id;
+        Router.go("/group-status/" + groupId + "/add-friend");
     }
 });

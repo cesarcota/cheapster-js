@@ -65,14 +65,8 @@ Template.newgroup.events({
         //This will be done to guarantee that the view of the dashboard will only be called after all the checks
         var tempList = addFriend();
         console.log("TEMP LIST FIRST STEP: ", tempList);
-        if (tempList.length === 0) {
-            //This is done so the tempList will enter in the for each
-            tempList.push(Session.get("sessionUser").email);
-        } else {
-            groupData.users.push(Session.get("sessionUser"));
-            groupData.users[0].accuracy = 0;
-            console.log("ACCURACY TEST WHEN ONLY ONE USER: ", groupData);
-        }
+
+        tempList.push(Session.get("sessionUser").email);
 
         tempList.forEach(function(email, index) {
             console.log("TEMP LIST: ", tempList);
@@ -86,7 +80,9 @@ Template.newgroup.events({
                         return;
                     } else {
                         groupData.users.push(result);
-                        groupData.users[index + 1].accuracy = 0;
+                        groupData.users[index].accuracy = 0;
+                        groupData.users[index].roundsPresent = 0;
+                        groupData.users[index].payedRounds = 0;
                         console.log("DATA: ", groupData);
                     }
 

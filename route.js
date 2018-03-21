@@ -64,6 +64,26 @@ Router.route("/group-status/:_id/event", function() {
     }
 });
 
+Router.route("/group-status/:_id/add-friend", function() {
+    if (Session.get("sessionUser") === undefined) {
+        this.render("/login");
+    } else {
+        Meteor.call(
+            "findGroupById",
+            this.params._id,
+            function(error, result) {
+                if (!error) {
+                    this.render("updateFriend", {
+                        data: function() {
+                            return result;
+                        }
+                    });
+                }
+            }.bind(this)
+        );
+    }
+});
+
 Router.route("/newgroup", function() {
     if (Session.get("sessionUser") !== undefined) {
         console.log("SESSION NEWGROUP: " + Session.get("sessionUser").email);

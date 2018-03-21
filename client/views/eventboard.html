@@ -19,7 +19,7 @@
             <tr>
                     <input id="{{_id}}" class="skipRound" checked="checked" type="checkbox">
                     {{displayName}}
-                    <input type="radio" id="{{email}}" class="payedRound" name="payed" value="{{displayName}}">
+                    {{> radio}}
 
             </tr>
         {{/each}}
@@ -32,3 +32,8 @@
 </p>
 
 </template>
+
+<template name="radio">
+        <input type="radio" id="{{email}}" class="payedRound" name="payed" value="{{_id}}">
+</template>
+
