@@ -1,7 +1,6 @@
 Template.mainCheapster.helpers({
     cheapster() {
         var groupUsers = this.users;
-        console.log("GROUP USER UPDATED: ", groupUsers);
 
         //Now it needs to select the person with the lowest ratio accuracy
         var tempCheapster = 1;

@@ -1,0 +1,22 @@
+<template name="eventsList">
+THIS GROUP EVENTS
+<table>
+    <tr>
+        <th>
+            Group Events
+        </th>
+    </tr>
+    
+    {{#each showEvents}}
+
+
+        <tr data-value="{{_id}}">
+
+          <option href="#" class="selectEvent" value="{{_id}}">Previous Event (Person who paid: {{paidPerson}} )</option>
+
+        </tr>
+
+      {{/each}}
+    
+</table>
+</template>

@@ -7,7 +7,6 @@ Meteor.methods({
     },
 
     findGroupsByUser: function(userId) {
-        //CHECK THIS
         var groups = Groups.find({ "users._id": userId }).fetch();
         return groups;
     },

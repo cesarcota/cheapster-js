@@ -20,6 +20,8 @@ Template.eventBoard.events({
     "click .createEvent": function(event) {
         var users = this.users;
         var groupRounds = this.rounds;
+        var usersPresent = [];
+        var paidPerson;
         users.forEach(function(element, index) {
             //Search in the checkboxs to see which ones are selected
             var isPresent = $("#" + element._id + ":checked").val();
@@ -29,10 +31,12 @@ Template.eventBoard.events({
             if (isPresent !== undefined) {
                 //Increase the number of rounds in the user
                 element.roundsPresent += 1;
+                usersPresent.push(element);
             }
             //This is to determine which one is the person who payed
             if (payed === element._id) {
                 element.payedRounds += 1;
+                paidPerson = element.displayName;
             }
             //Update their accuracy
             var tempAccuracy = element.accuracy;
@@ -51,6 +55,13 @@ Template.eventBoard.events({
             result
         ) {
             if (!error) {
+                //Then it creates an event with what happened here
+                var eventData = {
+                    groupId: groupId,
+                    paidPerson: paidPerson,
+                    usersPresent: usersPresent
+                };
+                Meteor.call("addEvent", eventData);
                 Router.go("/group-status/" + groupId);
             }
         });
