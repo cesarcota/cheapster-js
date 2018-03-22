@@ -1,7 +1,9 @@
+/*@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);*/
+
 body {
   font-family: "Palanquin Dark", sans-serif;
 
-  background-color: #315481;
+  background-color: #e5074b;
   background-image: linear-gradient(to bottom, #e5074b, #e5074b 150%);
   background-attachment: fixed;
 
@@ -36,18 +38,17 @@ body {
 
 img {
   padding: 0;
-
-  margin: 0 auto;
+  margin: auto;
   max-height: 100%;
   max-width: 100%;
-
   width: 150px;
   height: 150px;
   vertical-align: middle;
 }
 
-.img2 {
-  width: 100%;
+img.img2 {
+  background-image: url("logo.png");
+  width: 80%;
   height: auto;
   vertical-align: middle;
 }
@@ -59,27 +60,22 @@ img {
   font-size: 24px;
 }
 
-a {
+a.enterLogin {
   text-decoration: none;
   align-self: center;
-  text-decoration: none;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
-  padding: 12px 53px 12px 23px;
-  color: #fff;
+  padding: 20px 31px 20px 31px;
+  margin: auto;
+  border-radius: 12px;
   text-transform: uppercase;
-  text-align: center;
-  text-indent: 8%;
-  font-size: 22px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
   position: relative;
+  display: inline-block;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  color: #e5074b;
+  background-color: #ffffff;
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
 }

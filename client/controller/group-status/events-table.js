@@ -25,10 +25,3 @@ Template.eventsList.helpers({
         return list.get();
     }
 });
-
-Template.eventsList.events({
-    "click .selectEvent": function(event) {
-        var eventId = $(event.currentTarget).val();
-        Router.go("/event-stats/" + eventId);
-    }
-});

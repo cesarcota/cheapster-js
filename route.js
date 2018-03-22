@@ -93,23 +93,3 @@ Router.route("/newgroup", function() {
         this.render("login");
     }
 });
-
-Router.route("/event-stats/:_id", function() {
-    if (Session.get("sessionUser") === undefined) {
-        this.render("/login");
-    } else {
-        Meteor.call(
-            "findEventById",
-            this.params._id,
-            function(error, result) {
-                if (!error) {
-                    this.render("eventStats", {
-                        data: function() {
-                            return result;
-                        }
-                    });
-                }
-            }.bind(this)
-        );
-    }
-});

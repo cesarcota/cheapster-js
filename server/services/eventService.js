@@ -8,10 +8,5 @@ Meteor.methods({
 
     findEventsByGroup: function(groupId) {
         return Events.find({ groupId: groupId }).fetch();
-    },
-
-    findEventById: function(eventId) {
-        var event = Events.findOne({ _id: eventId });
-        return event;
     }
 });

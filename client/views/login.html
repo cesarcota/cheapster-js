@@ -1,9 +1,8 @@
 
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 </head>
 
 <template class="container body" name="landingpage">
@@ -12,7 +11,7 @@
 
 
       <img src="http://localhost:3000/logo.png" class="img2"/>
-      <a href="/login" style="background-color: #FFFFFF; color:#e5074b; text-decoration:none">Login</a>
+      <a href="/login" class="enterLogin">Login</a>
 
 
 
@@ -20,8 +19,10 @@
 
 </template>
 
-<template  class="container" class="body" name ="login">
-  <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+<template class="body" name ="login">
+  <div class="login">
+
+      <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
   <img src="http://localhost:3000/logo.png">
   <form>
     <input type="email"  name="loginEmail" placeholder="enter your email">
@@ -29,11 +30,14 @@
         <input type="password" name="loginPassword" placeholder="enter your password">
       </p>
       <p>
-        <input href ="#" type="submit" value="Login">
+        <input href ="#" type="submit" class="loginButton" value="Login">
       </p>
       <p>
-        <a href="/register" style="text-decoration:none">Register</a>
+        <a href="/register" class="registerButton">Register</a>
       </p>
     {{> flashMessages}}
   </form>
+
+  </div>
+
 </template>
