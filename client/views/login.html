@@ -24,16 +24,16 @@
   <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
   <img src="http://localhost:3000/logo.png">
   <form>
-    <input type="email"  name="loginEmail" placeholder="enter your email">
+    <input id = "emailbox" type="email"  name="loginEmail" placeholder="enter your email">
       <p>
-        <input type="password" name="loginPassword" placeholder="enter your password">
+        <input id = "passwordbox" type="password" name="loginPassword" placeholder="enter your password">
       </p>
       <p>
-        <input href ="#" type="submit" value="Login">
+        <input href ="#"  style="background-color: #FFFFFF; color:#e5074b; text-decoration:none;" type="submit"  id="loginbutton" value="Login">
       </p>
-      <p>
+
         <a href="/register" style="background-color: #FFFFFF; color:#e5074b; text-decoration:none">Register</a>
-      </p>
+
     {{> flashMessages}}
   </form>
 </template>
