@@ -1,27 +1,32 @@
 .register {
-  padding: 20%;
+  padding: 5%;
   margin: auto;
   height: auto;
   display: inline-block;
   font-size: 18px;
   display: grid;
   align-items: center;
-  font-family: "Palaquin Dark", sans-serif;
-  background-color: blue;
+  /*font-family: "Palaquin Dark", sans-serif;*/
 }
 
-.register > input {
+.register input {
   border-radius: 12px;
   text-align: center;
   padding: 1%;
-  margin: 1%;
-  font-size: 14px;
+  margin: 1.2%;
+  font-size: 18px;
 }
 
-.register.createCount {
-  padding-right: 7%;
-  padding-left: 7%;
+.register .createCount {
+  padding-right: 4%;
+  padding-left: 4%;
   font-weight: bold;
   cursor: pointer;
   margin-top: 5%;
+}
+
+.register .createCount:hover {
+  text-decoration: none;
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
 }

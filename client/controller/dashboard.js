@@ -19,6 +19,7 @@ Template.hello.helpers({
 });
 
 Template.listgroups.rendered = function() {
+    console.log("SESSION USER IN DASHBOARD: ", Session.get("sessionUser"));
     Meteor.call("findGroupsByUser", Session.get("sessionUser")._id, function(
         error,
         groups

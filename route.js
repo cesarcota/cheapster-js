@@ -11,21 +11,24 @@ Router.route("/register", function() {
 });
 
 Router.route("/addgroup", function() {
-    this.render("addgroup");
+    if (document.cookie === undefined) {
+        this.render("login");
+    } else {
+        this.render("addgroup");
+    }
 });
 
 Router.route("/dashboard", function() {
-    if (Session.get("sessionUser") !== undefined) {
-        console.log("SESSION: " + Session.get("sessionUser").email);
-        this.render("dashboard");
+    console.log("COOKIE: ", document.cookie);
+    if (document.cookie !== undefined) {
+        setSession(document.cookie, this, "dashboard");
     } else {
-        console.log("SESSION: " + Session.get("sessionUser"));
         this.render("login");
     }
 });
 
 Router.route("/group-status/:_id", function() {
-    if (Session.get("sessionUser") === undefined) {
+    if (document.cookie === undefined) {
         this.render("/login");
     } else {
         Meteor.call(
@@ -33,11 +36,7 @@ Router.route("/group-status/:_id", function() {
             this.params._id,
             function(error, result) {
                 if (!error) {
-                    this.render("group-status", {
-                        data: function() {
-                            return result;
-                        }
-                    });
+                    setSession(document.cookie, this, "group-status", result);
                 }
             }.bind(this)
         );
@@ -45,7 +44,7 @@ Router.route("/group-status/:_id", function() {
 });
 
 Router.route("/group-status/:_id/event", function() {
-    if (Session.get("sessionUser") === undefined) {
+    if (document.cookie === undefined) {
         this.render("/login");
     } else {
         Meteor.call(
@@ -53,11 +52,7 @@ Router.route("/group-status/:_id/event", function() {
             this.params._id,
             function(error, result) {
                 if (!error) {
-                    this.render("eventBoard", {
-                        data: function() {
-                            return result;
-                        }
-                    });
+                    setSession(document.cookie, this, "eventBoard", result);
                 }
             }.bind(this)
         );
@@ -65,7 +60,7 @@ Router.route("/group-status/:_id/event", function() {
 });
 
 Router.route("/group-status/:_id/add-friend", function() {
-    if (Session.get("sessionUser") === undefined) {
+    if (document.cookie === undefined) {
         this.render("/login");
     } else {
         Meteor.call(
@@ -73,11 +68,7 @@ Router.route("/group-status/:_id/add-friend", function() {
             this.params._id,
             function(error, result) {
                 if (!error) {
-                    this.render("updateFriend", {
-                        data: function() {
-                            return result;
-                        }
-                    });
+                    setSession(document.cookie, this, "updateFriend", result);
                 }
             }.bind(this)
         );
@@ -85,11 +76,27 @@ Router.route("/group-status/:_id/add-friend", function() {
 });
 
 Router.route("/newgroup", function() {
-    if (Session.get("sessionUser") !== undefined) {
-        console.log("SESSION NEWGROUP: " + Session.get("sessionUser").email);
-        this.render("newgroup");
+    if (document.cookie !== undefined) {
+        setSession(document.cookie, this, "newgroup");
     } else {
-        console.log("SESSION NEWGROUP: " + Session.get("sessionUser"));
         this.render("login");
     }
 });
+
+function setSession(email, page, template, idStore) {
+    Meteor.call("findByEmail", email, function(error, user) {
+        if (!error) {
+            console.log("USER IN FUNCTION: ", user);
+            Session.set("sessionUser", user);
+            if (idStore !== undefined) {
+                page.render(template, {
+                    data: function() {
+                        return idStore;
+                    }
+                });
+            } else {
+                page.render(template);
+            }
+        }
+    });
+}
