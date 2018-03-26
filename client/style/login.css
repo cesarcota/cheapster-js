@@ -6,44 +6,10 @@
   align-items: center;
 }
 
-.login input {
+.login .loginField {
   border-radius: 12px;
   text-align: center;
   padding: 1%;
   margin: 2%;
   font-size: 18px;
-}
-
-.login .loginButton {
-  padding-right: 7%;
-  padding-left: 7%;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.login .loginButton:hover {
-  background-color: #e0e0eb;
-  color: rgb(33, 65, 133);
-}
-
-.login .registerButton {
-  text-decoration: none;
-  color: black;
-  background-color: white;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  margin: 1%;
-  padding-right: 5%;
-  padding-left: 5%;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.login .registerButton:hover {
-  text-decoration: none;
-  background-color: #e0e0eb;
-  color: rgb(33, 65, 133);
 }

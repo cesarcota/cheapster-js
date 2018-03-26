@@ -39,7 +39,7 @@ body {
   vertical-align: middle;
 }
 
-img {
+.openImage {
   padding: 0;
   margin: auto;
   max-height: 70%;
@@ -49,7 +49,9 @@ img {
   vertical-align: middle;
 }
 
-img.img2 {
+.landingImage {
+  padding: 0;
+  margin: auto;
   background-image: url("logo.png");
   width: 80%;
   height: auto;
@@ -81,5 +83,70 @@ a.enterLogin {
   transition: all 0.3s;
   color: #e5074b;
   background-color: #ffffff;
-  display: inline-block;
+}
+
+.displayText {
+  font-size: 25px;
+  color: #ffffffe7;
+  padding: 5%;
+  /*font-family: "Exo 2", sans-serif;*/
+  font-family: "Gloria Hallelujah", cursive;
+  text-align: left;
+}
+
+.standardButton,
+#standardButton {
+  border-radius: 12px;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 7%;
+  padding-left: 7%;
+  margin-bottom: 1%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.standardButton:hover,
+#standardButton:hover {
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
+}
+
+.standardAnchor,
+#standardAnchor {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  margin: 1%;
+  padding-right: 6%;
+  padding-left: 6%;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.standardAnchor:hover,
+#standardAnchor:hover {
+  text-decoration: none;
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
+}
+
+.flashMessages {
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.logout {
+  height: 5%;
+  width: 6%;
+  min-height: 3%;
+  min-width: 3%;
 }

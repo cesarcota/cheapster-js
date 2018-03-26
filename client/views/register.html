@@ -1,6 +1,6 @@
 <template class="body" name ="register">
   <div class="register">
-      <img src="http://localhost:3000/logo.png">
+      <img src="http://localhost:3000/logo.png" class="openImage">
       <form class="add-user">
         <p>
             <input type="email"  name="registerEmail" placeholder="enter your email">
@@ -21,7 +21,10 @@
         <p>
         <input href ="/login" class="createCount" type="submit" value="Create Count">
       </p>
-      {{> flashMessages}}
+      <div class="flashMessages">
+            {{> flashMessages}}
+
+      </div>
       </form>
   </div>
 

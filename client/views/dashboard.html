@@ -1,36 +1,39 @@
-<template name="hello">
-  {{displayName}}
-</template>
+
 
 <template name="listgroups">
-  <table>
-    <tr>
-      <th>List of Groups</th>
-    </tr>
-
-      {{#each groupList}}
-
-        <tr data-value="{{index}}">
-
-          <option href="#" class="select-group" value="{{_id}}">{{groupName}} ({{userNames}} )</option>
-          <!--
-          <a href="#" class="select-group" value="{{_id}}">{{groupName}} ({{> listusers}} ) </a>
--->
+<div class="dashboardTable">
+    <table class="blueTable">
+        <thead>
+        <tr>
+          <th>List of Groups</th>
         </tr>
+      </thead>
+      <tbody>
+          {{#each groupList}}
+          
+    
+            <tr data-value="{{index}}">
+    
+              <option href="#" class="select-group" value="{{_id}}">{{groupName}} ({{userNames}} )</option>
+    
+            </tr>
+         
+          {{/each}}
+        </tbody>
+    
+      </table>
+</div>
 
-      {{/each}}
-
-  </table>
 </template>
 
 
 <template name="dashboard">
-  Welcome {{> hello}}
+  {{> header}}
     <p>
       {{> listgroups}}
     </p>
     <p>
-      <button type="button" class="newgroup">Create a new group</button>
+      <button id="standardButton" type="button" class="newgroup">Create a new group</button>
     </p>
-    <p><a href="#" class="logout">Logout</a></p>
+    
 </template>

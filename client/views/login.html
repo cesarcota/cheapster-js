@@ -10,7 +10,7 @@
       <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 
-      <img src="http://localhost:3000/logo.png" class="img2"/>
+      <img src="http://localhost:3000/logo.png" class="landingImage"/>
       <a href="/login" class="enterLogin">Login</a>
 
 
@@ -23,19 +23,22 @@
   <div class="login">
 
       <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
-  <img src="http://localhost:3000/logo.png">
+  <img src="http://localhost:3000/logo.png" class="openImage">
   <form>
-    <input type="email"  name="loginEmail" placeholder="enter your email">
+    <input type="email" class="loginField" name="loginEmail" placeholder="enter your email">
       <p>
-        <input type="password" name="loginPassword" placeholder="enter your password">
+        <input type="password" class="loginField" name="loginPassword" placeholder="enter your password">
       </p>
       <p>
-        <input href ="#" type="submit" class="loginButton" value="Login">
+        <input href ="#" type="submit" class="standardButton" value="Login">
       </p>
       <p>
-        <a href="/register" class="registerButton">Register</a>
+        <a href="/register" class="standardAnchor">Register</a>
       </p>
-    {{> flashMessages}}
+      <div class="flashMessages">
+          {{> flashMessages}}
+
+      </div>
   </form>
 
   </div>

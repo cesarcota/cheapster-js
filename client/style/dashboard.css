@@ -1,0 +1,53 @@
+.dashboardTable {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+}
+
+table.blueTable {
+  border: 1px solid #1c6ea4;
+  background-color: #eeeeee;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  color: #0c0000e7;
+  padding: 10%;
+  /*font-family: "Exo 2", sans-serif;*/
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 18px;
+}
+table.blueTable td,
+table.blueTable th {
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 16px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #f5d9d0;
+}
+table.blueTable thead {
+  background: #a45d12;
+  background: -moz-linear-gradient(top, #bb854d 0%, #ad6d29 66%, #a45d12 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #bb854d 0%,
+    #ad6d29 66%,
+    #a45d12 100%
+  );
+  background: linear-gradient(to bottom, #bb854d 0%, #ad6d29 66%, #a45d12 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  border-left: 2px solid #f5dfcb;
+  text-align: center;
+  padding: 2%;
+  font-family: "Gloria Hallelujah", cursive;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
