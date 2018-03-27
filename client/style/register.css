@@ -13,8 +13,9 @@
   border-radius: 12px;
   text-align: center;
   padding: 1%;
-  margin: 1.2%;
+  margin: 2%;
   font-size: 18px;
+  width: 30%;
 }
 
 .register input::placeholder {
@@ -22,8 +23,8 @@
 }
 
 .register .createCount {
-  padding-right: 6%;
-  padding-left: 6%;
+  padding: 1%;
+  width: 30%;
   font-weight: bold;
   cursor: pointer;
   margin-top: 3%;
