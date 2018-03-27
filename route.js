@@ -36,6 +36,8 @@ Router.route("/group-status/:_id", function() {
             this.params._id,
             function(error, result) {
                 if (!error) {
+                    console.log("COOKIE: ", document.cookie);
+                    console.log("RESULT: ", result);
                     setSession(document.cookie, this, "group-status", result);
                 }
             }.bind(this)
@@ -84,7 +86,13 @@ Router.route("/newgroup", function() {
 });
 
 function setSession(email, page, template, idStore) {
-    Meteor.call("findByEmail", email, function(error, user) {
+    //This code is for when the cookies increment a new user
+    var refactorEmail = email.split("; ");
+    if (refactorEmail.length > 1) {
+        refactorEmail = refactorEmail[0];
+    }
+    console.log("REFACTOR EMAIL: ", refactorEmail);
+    Meteor.call("findByEmail", refactorEmail, function(error, user) {
         if (!error) {
             console.log("USER IN FUNCTION: ", user);
             Session.set("sessionUser", user);

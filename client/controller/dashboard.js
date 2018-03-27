@@ -5,12 +5,6 @@ Template.dashboard.events({
     }
 });
 
-Template.hello.helpers({
-    displayName() {
-        return Session.get("sessionUser").displayName;
-    }
-});
-
 Template.listgroups.rendered = function() {
     console.log("SESSION USER IN DASHBOARD: ", Session.get("sessionUser"));
     Meteor.call("findGroupsByUser", Session.get("sessionUser")._id, function(
@@ -65,6 +59,3 @@ Template.listgroups.events({
         });
     }
 });
-
-//The next 2 templates are used to show the uses in each group, together with the name of
-//the group

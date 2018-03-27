@@ -6,3 +6,9 @@ Template.header.events({
         Router.go("/login");
     }
 });
+
+Template.hello.helpers({
+    displayName() {
+        return Session.get("sessionUser").displayName;
+    }
+});

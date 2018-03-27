@@ -4,10 +4,5 @@ table.blueTable .usersNames {
 
 table.blueTable .selectEvent {
   padding: 1.3%;
-  cursor: pointer;
-}
-
-table.blueTable .selectEvent:hover {
-  cursor: pointer;
-  background-color: #b1aeae;
+  cursor: arrow;
 }
