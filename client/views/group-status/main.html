@@ -6,16 +6,21 @@
 </head>
 
 <template name="group-status">
-        {{> mainCheapster}}
-        <br>
-        {{> Name}}
-        <br>
-        {{> addUsersToGroup}}
-        <br>
-        <br>
-        {{> newRound}}
-        <br>
-        {{> listUsers}}
-        <br>
-        {{> eventsList}}
+        <div class="content">
+                {{> header}}
+                {{> mainCheapster}}
+                        
+                {{> groupName}}    
+                <br>
+                {{> addUsersToGroup}}
+                <br>
+                <br>
+                {{> newRound}}
+               <br>
+                {{> listUsers}}
+                <br>
+                {{> eventsList}}
+
+        </div>
+        
 </template>

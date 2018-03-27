@@ -1,12 +1,16 @@
 <template class="hello"  name="header">
-        <label class="displayText">
+        <div id="header">
+                <label class="displayText">
                 Welcome {{> hello}}
-                  </label>
-                  <img src="http://localhost:3000/logout.png" class="logout"/>
+                </label>
+                <img src="http://localhost:3000/logout.png" class="logout"/>
+
+        </div>
+
+      
+        
 </template>
 
 <template name="hello">
         {{displayName}}
-        
-       
 </template>

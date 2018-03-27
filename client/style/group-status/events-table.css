@@ -1,0 +1,13 @@
+table.blueTable .usersNames {
+  padding: 1.3%;
+}
+
+table.blueTable .selectEvent {
+  padding: 1.3%;
+  cursor: pointer;
+}
+
+table.blueTable .selectEvent:hover {
+  cursor: pointer;
+  background-color: #b1aeae;
+}

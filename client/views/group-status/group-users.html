@@ -1,15 +1,28 @@
 <template name= "listUsers">
-        <table>
-          <tr>
-            <th>Users</th>
-          </tr>
-      
-            {{#each userList}}
+     
+
+        <div class="dashboardTable">
+          <table class="blueTable">
+              <thead>
               <tr>
-                {{displayName}}
+                <th>Users</th>
               </tr>
-      
-        {{/each}}
-      
-        </table>
+            </thead>
+            <tbody>
+                {{#each userList}}
+                
+          
+                  <tr>
+          
+                    <label class="usersNames">
+                      {{displayName}}
+                    </label>
+          
+                  </tr>
+               
+                {{/each}}
+              </tbody>
+          
+            </table>
+      </div>
       </template>

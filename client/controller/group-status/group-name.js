@@ -1,5 +1,5 @@
-Template.Name.helpers({
-    groupName() {
+Template.groupName.helpers({
+    name() {
         return Session.get("sessionGroup").groupName;
     }
 });

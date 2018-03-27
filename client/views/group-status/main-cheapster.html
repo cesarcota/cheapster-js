@@ -1,22 +1,29 @@
 <template name="mainCheapster">
-  <table>
-    <tr>
-      <th>
-          THE MAIN CHEAPSTER
-      </th>
-      <th>
-          NUMBER OF ROUNDS: {{numberRounds}}
-      </th>
-    </tr>
-    <tr>
-      <td>
-          {{cheapster}}
-      </td>
-    </tr>
-  </table>
-        
-      
 
-      
-      
-        </template>
+<div class="mainCheapsterTable">
+    <p>
+        <table class="minimalistBlack">
+            <thead>
+            <tr>
+            <th>
+                <label class="cheapsterLabel">THE MAIN CHEAPSTER
+                    <p>
+                        <label class="cheapsterNameLabel"> {{cheapster}}</label>
+                    </p>
+                </label>
+                
+                
+            </th>
+            <th>
+                <label class="numberRoundsLabel">NUMBER OF ROUNDS: {{numberRounds}}</label>
+            </th>
+            </tr>
+            </thead>
+           
+            </table>
+      </p>
+</div>
+  
+
+
+</template>

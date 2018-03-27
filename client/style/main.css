@@ -94,49 +94,6 @@ a.enterLogin {
   text-align: left;
 }
 
-.standardButton,
-#standardButton {
-  border-radius: 12px;
-  text-align: center;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-right: 7%;
-  padding-left: 7%;
-  margin-bottom: 1%;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.standardButton:hover,
-#standardButton:hover {
-  background-color: #e0e0eb;
-  color: rgb(33, 65, 133);
-}
-
-.standardAnchor,
-#standardAnchor {
-  text-decoration: none;
-  color: black;
-  background-color: white;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
-  margin: 1%;
-  padding-right: 6%;
-  padding-left: 6%;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.standardAnchor:hover,
-#standardAnchor:hover {
-  text-decoration: none;
-  background-color: #e0e0eb;
-  color: rgb(33, 65, 133);
-}
-
 .flashMessages {
   margin-left: 20%;
   margin-right: 20%;
@@ -145,8 +102,9 @@ a.enterLogin {
 }
 
 .logout {
-  height: 5%;
-  width: 6%;
-  min-height: 3%;
-  min-width: 3%;
+  height: auto;
+  max-height: 6%;
+  max-width: 6%;
+  width: auto;
+  cursor: pointer;
 }

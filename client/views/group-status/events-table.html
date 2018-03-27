@@ -1,22 +1,25 @@
 <template name="eventsList">
-THIS GROUP EVENTS
-<table>
-    <tr>
-        <th>
-            Group Events
-        </th>
-    </tr>
-    
-    {{#each showEvents}}
 
-
-        <tr data-value="{{_id}}">
-
-          <option href="#" class="selectEvent" value="{{_id}}">Previous Event (Person who paid: {{paidPerson}} )</option>
-
+<div class="dashboardTable">
+    <table class="blueTable">
+        <thead>
+        <tr>
+          <th>THIS GROUP EVENTS</th>
         </tr>
-
-      {{/each}}
+      </thead>
+      <tbody>
+          {{#each showEvents}}
+          
     
-</table>
+            <tr data-value="{{_id}}">
+    
+                <option href="#" class="selectEvent" value="{{_id}}">Previous Event (Person who paid: {{paidPerson}} )</option>
+    
+            </tr>
+         
+          {{/each}}
+        </tbody>
+    
+      </table>
+</div>
 </template>

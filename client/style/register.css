@@ -17,12 +17,16 @@
   font-size: 18px;
 }
 
+.register input::placeholder {
+  color: rgb(179, 171, 171);
+}
+
 .register .createCount {
-  padding-right: 4%;
-  padding-left: 4%;
+  padding-right: 6%;
+  padding-left: 6%;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 .register .createCount:hover {

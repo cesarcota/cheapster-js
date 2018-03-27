@@ -13,3 +13,50 @@
   margin: 2%;
   font-size: 18px;
 }
+
+.loginField::placeholder {
+  color: rgb(179, 171, 171);
+}
+
+.login .standardButton,
+#standardButton {
+  border-radius: 12px;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 10%;
+  padding-left: 10%;
+  margin-bottom: 1%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.login .standardButton:hover,
+#standardButton:hover {
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
+}
+
+.login .standardAnchor,
+#standardAnchor {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding-top: 1.7%;
+  padding-bottom: 1.7%;
+  margin: 1%;
+  padding-right: 8.8%;
+  padding-left: 8.8%;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.login .standardAnchor:hover,
+#standardAnchor:hover {
+  text-decoration: none;
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
+}

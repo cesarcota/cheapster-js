@@ -1,11 +1,4 @@
 Template.dashboard.events({
-    "click .logout": function(event) {
-        event.preventDefault();
-        //To log out
-        Session.set("sessionUser", undefined);
-        Router.go("/login");
-    },
-
     "click .newgroup": function(event) {
         event.preventDefault();
         Router.go("/newgroup");

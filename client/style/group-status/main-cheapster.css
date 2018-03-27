@@ -1,0 +1,68 @@
+.mainCheapsterTable {
+  margin-left: 31%;
+}
+
+.cheapsterLabel {
+  text-align: center;
+  border: 5px solid rgba(0, 0, 0, 0.582);
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 7%;
+  padding-bottom: 7%;
+  border-radius: 35px;
+  background: -webkit-linear-gradient(
+    top,
+    #e4486f 0%,
+    #d4303e 66%,
+    #d81616 100%
+  );
+  margin: auto;
+  font-family: "Gloria Hallelujah", cursive;
+  color: #f1d7d7e7;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.numberRoundsLabel {
+  margin-left: 6%;
+  text-align: right;
+  font-size: 18px;
+  color: #ffffffe7;
+  padding: 5%;
+  padding-right: 10%;
+  padding-left: 10%;
+  /*font-family: "Exo 2", sans-serif;*/
+  font-family: "Gloria Hallelujah", cursive;
+  text-align: left;
+}
+
+.cheapsterNameLabel {
+  margin-top: 10%;
+  margin-bottom: 1%;
+  font-family: "Gloria Hallelujah", cursive;
+  color: #f1d7d7e7;
+  font-weight: bold;
+  font-size: 23px;
+  text-decoration: underline;
+}
+
+table.minimalistBlack {
+  width: 100%;
+  height: 200%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.minimalistBlack td,
+table.minimalistBlack th {
+  padding: 5px 4px;
+}
+table.minimalistBlack tbody td {
+  font-size: 13px;
+}
+
+table.minimalistBlack thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
