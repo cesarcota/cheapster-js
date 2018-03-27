@@ -88,9 +88,9 @@ Router.route("/newgroup", function() {
 function setSession(email, page, template, idStore) {
     //This code is for when the cookies increment a new user
     var refactorEmail = email.split("; ");
-    if (refactorEmail.length > 1) {
-        refactorEmail = refactorEmail[0];
-    }
+
+    refactorEmail = refactorEmail[0];
+
     console.log("REFACTOR EMAIL: ", refactorEmail);
     Meteor.call("findByEmail", refactorEmail, function(error, user) {
         if (!error) {

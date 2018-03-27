@@ -13,7 +13,7 @@ table.blueTable {
   color: #0c0000e7;
   padding: 10%;
   /*font-family: "Exo 2", sans-serif;*/
-  font-family: "Gloria Hallelujah", cursive;
+  font-family: "Lato", sans-serif;
   font-size: 18px;
 }
 table.blueTable td,
@@ -46,7 +46,7 @@ table.blueTable thead th {
   border-left: 2px solid #f5dfcb;
   text-align: center;
   padding: 2%;
-  font-family: "Gloria Hallelujah", cursive;
+  font-family: "Lato", sans-serif;
 }
 table.blueTable thead th:first-child {
   border-left: none;

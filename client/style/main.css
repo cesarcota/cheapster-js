@@ -90,7 +90,8 @@ a.enterLogin {
   color: #ffffffe7;
   padding: 5%;
   /*font-family: "Exo 2", sans-serif;*/
-  font-family: "Gloria Hallelujah", cursive;
+  /*font-family: "Gloria Hallelujah", cursive;*/
+  font-family: "Cabin Condensed", sans-serif;
   text-align: left;
 }
 
