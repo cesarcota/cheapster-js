@@ -3,7 +3,17 @@ Template.eventBoard.helpers({
         //This will show the users in this group
         var usersList = this.users;
         var userId = Session.get("sessionUser")._id;
-        //$("input[name=payed][value=" + userId + "]").prop("checked", true);
+
+        return usersList;
+    },
+
+    usersName() {
+        var usersList = this.users;
+        console.log("USERS NAME: ", usersList);
+        usersList.forEach(function(user, index) {
+            var accuracy = user.accuracy;
+            usersList[index].accuracy *= 100;
+        });
 
         return usersList;
     }

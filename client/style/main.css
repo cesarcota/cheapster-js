@@ -109,3 +109,8 @@ a.enterLogin {
   width: auto;
   cursor: pointer;
 }
+
+.container {
+  max-width: 1240px;
+  width: 100%;
+}

@@ -6,7 +6,6 @@ Template.dashboard.events({
 });
 
 Template.listgroups.rendered = function() {
-    console.log("SESSION USER IN DASHBOARD: ", Session.get("sessionUser"));
     Meteor.call("findGroupsByUser", Session.get("sessionUser")._id, function(
         error,
         groups
@@ -40,7 +39,6 @@ Template.listgroups.rendered = function() {
 
 Template.listgroups.helpers({
     groupList() {
-        console.log("GROUP LIST: ", Session.get("groupList"));
         return Session.get("groupList");
     }
 });
@@ -52,7 +50,6 @@ Template.listgroups.events({
         Meteor.call("findGroupById", groupId, function(error, group) {
             if (!error) {
                 //Stores this group in a session variable so it can be used in the next view
-                console.log("ID: ", groupId);
                 Session.set("sessionGroup", group);
                 Router.go("/group-status/" + groupId);
             }

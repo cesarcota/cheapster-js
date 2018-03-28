@@ -6,6 +6,13 @@ Template.register.events({
         var repeatPassword = event.target.repeatPassword.value;
         var displayName = event.target.registerDisplayName.value;
         var customTypes = ["Beer", "Coffee", "Meals", "Other"];
+
+        if (displayName.length > 12) {
+            FlashMessages.sendError(
+                "Display Name can't have more than 12 chars"
+            );
+            return;
+        }
         //Both passwords must be equal
         if (repeatPassword !== passwordVar) {
             FlashMessages.sendError("Passwords must be equal");

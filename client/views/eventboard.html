@@ -1,30 +1,57 @@
 <template name="eventBoard">
+{{> header}}
 
-<table>
+
+<table class="blueTable">
+    <thead>
     <tr>
-        <td>
-            Present
-        </td>
-        <td>
-            Users
-        </td>
-        <td>
-            Who paid?
-        </td>
-    </tr>
+      <th>Present</th>
     
-    
-    <form class="eventTable">
-        {{#each usersTable}}
-            <tr>
-                    <input id="{{_id}}" class="skipRound" checked="checked" type="checkbox">
-                    {{displayName}}
-                    {{> radio}}
+    <th>Users</th>
+    <th>Who paid?</th>
+</tr>
+  </thead>
+  <tbody class="checkBoxPresent">
+      <td name="checkBoxPresent">
+            <form class="eventTable">
+                    {{#each usersTable}}
+                        <tr class="formTable">
+                            <label class="checkboxEventBoard">
+                                    <input id="{{_id}}" class="skipRound" checked="checked" type="checkbox">
+                                    <span class="checkmark"></span>
+                            </label>
+                            
+                        
+                        </tr>
+                    {{/each}}
+                </form>
+      </td>
+      <td>
+            <form class="displayNameEvent">
+                    {{#each usersName}}
+                        <tr class="formTable">
+                            
+                            {{displayName}} - accuracy of: {{accuracy}}%
 
-            </tr>
-        {{/each}}
-    </form>
-</table>
+                        </tr>
+                    {{/each}}
+                </form>
+      </td>
+      <td class="radioButtonPayedRound">
+            <form class="eventTable">
+                    {{#each usersTable}}
+                        <tr class="formTable">
+                            
+                            {{> radio}}
+
+                        </tr>
+                    {{/each}}
+                </form>
+      </td>
+    
+    </tbody>
+
+  </table>
 
 <p>
     <button class="createEvent">Pay Round</button>

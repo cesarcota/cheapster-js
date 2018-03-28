@@ -1,3 +1,5 @@
+import { validateEmail } from "./imports/email-validation.js";
+
 Router.route("/", function() {
     this.render("landingpage");
 });
@@ -11,7 +13,7 @@ Router.route("/register", function() {
 });
 
 Router.route("/addgroup", function() {
-    if (document.cookie === undefined) {
+    if (document.cookie === undefined || document.cookie === "") {
         this.render("login");
     } else {
         this.render("addgroup");
@@ -19,8 +21,7 @@ Router.route("/addgroup", function() {
 });
 
 Router.route("/dashboard", function() {
-    console.log("COOKIE: ", document.cookie);
-    if (document.cookie !== undefined) {
+    if (document.cookie !== undefined || document.cookie !== "") {
         setSession(document.cookie, this, "dashboard");
     } else {
         this.render("login");
@@ -28,7 +29,7 @@ Router.route("/dashboard", function() {
 });
 
 Router.route("/group-status/:_id", function() {
-    if (document.cookie === undefined) {
+    if (document.cookie === undefined || document.cookie === "") {
         this.render("/login");
     } else {
         Meteor.call(
@@ -36,8 +37,6 @@ Router.route("/group-status/:_id", function() {
             this.params._id,
             function(error, result) {
                 if (!error) {
-                    console.log("COOKIE: ", document.cookie);
-                    console.log("RESULT: ", result);
                     setSession(document.cookie, this, "group-status", result);
                 }
             }.bind(this)
@@ -46,7 +45,7 @@ Router.route("/group-status/:_id", function() {
 });
 
 Router.route("/group-status/:_id/event", function() {
-    if (document.cookie === undefined) {
+    if (document.cookie === undefined || document.cookie === "") {
         this.render("/login");
     } else {
         Meteor.call(
@@ -62,7 +61,7 @@ Router.route("/group-status/:_id/event", function() {
 });
 
 Router.route("/group-status/:_id/add-friend", function() {
-    if (document.cookie === undefined) {
+    if (document.cookie === undefined || document.cookie === "") {
         this.render("/login");
     } else {
         Meteor.call(
@@ -78,7 +77,7 @@ Router.route("/group-status/:_id/add-friend", function() {
 });
 
 Router.route("/newgroup", function() {
-    if (document.cookie !== undefined) {
+    if (document.cookie !== undefined || document.cookie !== "") {
         setSession(document.cookie, this, "newgroup");
     } else {
         this.render("login");
@@ -90,11 +89,8 @@ function setSession(email, page, template, idStore) {
     var refactorEmail = email.split("; ");
 
     refactorEmail = refactorEmail[0];
-
-    console.log("REFACTOR EMAIL: ", refactorEmail);
     Meteor.call("findByEmail", refactorEmail, function(error, user) {
         if (!error) {
-            console.log("USER IN FUNCTION: ", user);
             Session.set("sessionUser", user);
             if (idStore !== undefined) {
                 page.render(template, {
