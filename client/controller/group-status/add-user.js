@@ -14,7 +14,6 @@ Template.updateFriendsGroup.events({
         var groupUsers = this.users;
         var groupLength = groupUsers.length;
         var invalidEmail = false;
-        console.log("TEMP LIST: ", tempList);
         //It may happen that the user doesn't give any new mail, so it needs to have a way to bypass this process
         if (tempList.length === 0) {
             Router.go("/group-status/" + groupId);

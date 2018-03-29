@@ -13,7 +13,6 @@ Template.eventsList.onCreated(function onCreated() {
                     tempList.splice(0, 0, element);
                 }
             });
-            console.log("LIST TO RENDER: ", tempList);
             list.set(tempList);
         }
     });
@@ -21,7 +20,6 @@ Template.eventsList.onCreated(function onCreated() {
 
 Template.eventsList.helpers({
     showEvents() {
-        console.log("LIST IN THE HELPERS: ", list.get());
         return list.get();
     }
 });
