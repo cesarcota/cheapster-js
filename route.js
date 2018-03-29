@@ -1,5 +1,3 @@
-import { validateEmail } from "./imports/email-validation.js";
-
 Router.route("/", function() {
     this.render("landingpage");
 });

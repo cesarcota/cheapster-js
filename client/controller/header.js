@@ -4,6 +4,12 @@ Template.header.events({
         //To log out
         Session.set("sessionUser", undefined);
         Router.go("/login");
+    },
+
+    "click .goDashboard": function(event) {
+        event.preventDefault();
+        //To go to the dashboard
+        Router.go("/dashboard");
     }
 });
 

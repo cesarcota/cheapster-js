@@ -5,4 +5,117 @@ h1.displayText {
   font-size: 30px;
 }
 
+.addFriendText {
+  margin-bottom: -10%;
+  margin-top: -2%;
+  font-size: 25px;
+  color: #ffffffe7;
+  padding: 5%;
+  font-family: "Cabin Condensed", sans-serif;
+  text-align: center;
+}
+
+.newType,
+#friendEmail {
+  border-radius: 12px;
+  text-align: center;
+  padding: 1%;
+  margin: 2%;
+  font-size: 14px;
+  width: 30%;
+}
+
+.addFriend,
+.addGroup,
+.submitFriends {
+  border-radius: 12px;
+  text-align: center;
+  padding: 1%;
+  width: 30%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.addGroup,
+.submitFriends {
+  margin-top: 5%;
+}
+
+.addGroup:hover,
+.addFriend:hover,
+.submitFriends:hover {
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
+}
+
+.deleteFriend {
+  background-color: rgba(194, 11, 11, 0.753);
+  color: rgb(240, 226, 226);
+  border-radius: 50%;
+  height: auto;
+  max-height: 6%;
+  max-width: 6%;
+  width: auto;
+  cursor: pointer;
+  border: 1px solid rgb(100, 29, 29);
+}
+
 /*ComboBox*/
+.dropbtn {
+  border: 5px solid rgb(100, 29, 29);
+  background: -moz-linear-gradient(top, #e4486f 0%, #d4303e 66%, #d81616 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #e4486f 0%,
+    #d4303e 66%,
+    #d81616 100%
+  );
+  background: linear-gradient(to bottom, #e4486f 0%, #d4303e 66%, #d81616 100%);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 300px;
+  font-family: "Gloria Hallelujah", cursive;
+  margin-top: 3%;
+  border-radius: 2px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 300px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 16px;
+  font-family: "Gloria Hallelujah", cursive;
+  border: 2px solid rgb(100, 29, 29);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0e0eb;
+  color: rgb(33, 65, 133);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}

@@ -5,6 +5,7 @@
 }
 
 table.blueTable {
+  margin: auto;
   border: 5px solid rgb(100, 29, 29);
   background-color: #eeeeee;
   width: 100%;

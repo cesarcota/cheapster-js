@@ -1,5 +1,16 @@
 import addFriend from "./group-users.js";
 
+let selectGroupType;
+Template.categories.onCreated(function onRender() {
+    selectGroupType = new ReactiveVar("Select the Category");
+});
+
+Template.categories.helpers({
+    selectType() {
+        return selectGroupType.get();
+    }
+});
+
 Template.newgroup.events({
     "click .addGroup": function(event) {
         event.preventDefault();
@@ -12,7 +23,7 @@ Template.newgroup.events({
 
             typeArray.splice(typeArray.length - 1, 0, category);
 
-            //FAZER O UPDATE AO USER
+            //Update the user
 
             Meteor.call(
                 "updateUser",
@@ -64,12 +75,10 @@ Template.newgroup.events({
 
         //This will be done to guarantee that the view of the dashboard will only be called after all the checks
         var tempList = addFriend();
-        console.log("TEMP LIST FIRST STEP: ", tempList);
 
         tempList.push(Session.get("sessionUser").email);
 
         tempList.forEach(function(email, index) {
-            console.log("TEMP LIST: ", tempList);
             Meteor.call("findByEmail", email, function(error, result) {
                 if (!error) {
                     if (result === undefined) {
@@ -109,8 +118,12 @@ Template.categories.helpers({
 });
 
 Template.categories.events({
-    "change #category-select": function(event, template) {
-        var category = $(event.currentTarget).val();
+    "click .selectCategory": function(event, template) {
+        //var category = $(event.currentTarget).val();
+        var category = event.target.id;
+        console.log("CATEGORY: ", category);
+
+        selectGroupType.set(category);
 
         if (category === "Other") {
             Session.set("newType", true);

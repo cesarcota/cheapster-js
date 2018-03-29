@@ -8,7 +8,7 @@
     <input type="text"  id="groupName" class="groupName" placeholder="enter the group name">
       {{> categories}}
       {{#if addNewType}}
-        <input type="text"  id="newType" placeholder="enter the type of the group">
+        <input type="text"  id="newType" class="newType" placeholder="enter the type of the group">
       {{/if}}
 
       {{> addFriend}}
@@ -26,27 +26,26 @@
 
 <template name="categories">
   <p>
-      
-          <select id="category-select">
-              <option disabled="disabled" selected="selected">Please Select</option>
-                {{#each categories}}
-                  <option value="{{this}}">{{this}} </option>
-                {{/each}}
-          </select>
-      
-  
+      <div class="dropdown">
+        <button class="dropbtn">
+          {{selectType}}
+          </button>
+        <div class="dropdown-content">
+            {{#each categories}}
+            <a href="#" id="{{this}}" class="selectCategory" value="{{this}}">{{this}} </a>
+          {{/each}}
+        </div>
+      </div>
+
   </p>
 
-
-
-  
 </template>
 
 <template name="addFriend">
 
     
         <p>
-          Add a friend
+          <label class="addFriendText">Add a friend</label>
         </p>
         <input type="text" id="friendEmail" placeholder="enter your friend email">
         <p>
@@ -57,19 +56,24 @@
       </p>
      
 
-      <table>
-        <tr>
-          <th>
-            Your Friends
-          </th>
-        </tr>
-        {{#each showFriends}}
-        <tr>
-          <td>
-            {{this}} <button id="{{this}}" class="deleteFriend">X</button>
-          </td>
-        </tr>
-        {{/each}}
+      <table class="blueTable">
+        <thead>
+            <tr>
+                <th>
+                  Your Friends
+                </th>
+              </tr>
+        </thead>
+        <tbody>
+            {{#each showFriends}}
+            <tr>
+              <td>
+                {{this}} <button id="{{this}}" class="deleteFriend">X</button>
+              </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    
       </table>
 
 </template>
