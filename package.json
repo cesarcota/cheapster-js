@@ -8,6 +8,7 @@
     "@babel/runtime": "^7.0.0-beta.40",
     "bcrypt": "^1.0.3",
     "bootstrap": "^4.0.0",
+    "js-hash-code": "^1.0.0",
     "meteor-node-stubs": "^0.3.2"
   }
 }
