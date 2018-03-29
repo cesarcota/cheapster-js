@@ -1,4 +1,5 @@
-.login .loginField {
+.login .loginField,
+#groupName {
   border-radius: 12px;
   text-align: center;
   padding: 1%;

@@ -1,7 +1,9 @@
 
 <template name="newgroup">
 
-  <h1>Create your group</h1>
+  {{> header}}
+
+  <h1 class="displayText">Create your group</h1>
   
     <input type="text"  id="groupName" class="groupName" placeholder="enter the group name">
       {{> categories}}
@@ -14,25 +16,30 @@
     <p>
       <button href ="#" class="addGroup" value="Create Group">Create Group</button>
     </p>
-  
 
-  
+    <div class="flashMessages">
+        {{> flashMessages}}
 
-  
-
-  {{> flashMessages}}
+    </div>
 
 </template>
 
 <template name="categories">
   <p>
-    <select id="category-select">
-      <option disabled="disabled" selected="selected">Please Select</option>
-        {{#each categories}}
-          <option value="{{this}}">{{this}} </option>
-        {{/each}}
-  </select>
+      
+          <select id="category-select">
+              <option disabled="disabled" selected="selected">Please Select</option>
+                {{#each categories}}
+                  <option value="{{this}}">{{this}} </option>
+                {{/each}}
+          </select>
+      
+  
   </p>
+
+
+
+  
 </template>
 
 <template name="addFriend">
