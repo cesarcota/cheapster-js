@@ -7,11 +7,8 @@
 Template.facebookButton.events({
     "click .facebookLogin": function() {
         FB.login(function(faceStatus) {
-            console.log("STATUS: ", faceStatus);
             if (faceStatus.authResponse) {
                 FB.api("/me", { fields: "name, email" }, function(response) {
-                    console.log("RESPONSE: ", response);
-
                     if (response.email === undefined) {
                         return;
                     }
@@ -47,10 +44,6 @@ Template.facebookButton.events({
                                     newUser.email,
                                     function(error, userWithId) {
                                         if (!error) {
-                                            console.log(
-                                                "FACE USER WITH ID ",
-                                                userWithId
-                                            );
                                             Session.set(
                                                 "sessionUser",
                                                 userWithId
@@ -63,7 +56,6 @@ Template.facebookButton.events({
                             } else {
                                 Session.set("sessionUser", user);
                                 document.cookie = user.email;
-                                console.log("SESSION FACE USER", user);
                                 Router.go("/dashboard");
                             }
                         }

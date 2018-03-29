@@ -36,9 +36,7 @@ Template.newgroup.events({
                             Session.get("sessionUser").email,
                             function(error, user) {
                                 if (!error) {
-                                    console.log(
-                                        "CUSTOM TYPES: " + user.customTypes
-                                    );
+                                    console.log("updated");
                                 }
                             }
                         );
@@ -47,7 +45,6 @@ Template.newgroup.events({
             );
         } else {
             category = Session.get("chosenType");
-            console.log("CATEGORY (FALSE): " + category);
         }
 
         //Checks if the fields of the group name and type are filled
@@ -92,7 +89,6 @@ Template.newgroup.events({
                         groupData.users[index].accuracy = 0;
                         groupData.users[index].roundsPresent = 0;
                         groupData.users[index].payedRounds = 0;
-                        console.log("DATA: ", groupData);
                     }
 
                     //Then checks if the loop in tempList has ended
@@ -121,7 +117,6 @@ Template.categories.events({
     "click .selectCategory": function(event, template) {
         //var category = $(event.currentTarget).val();
         var category = event.target.id;
-        console.log("CATEGORY: ", category);
 
         selectGroupType.set(category);
 

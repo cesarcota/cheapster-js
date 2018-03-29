@@ -52,6 +52,5 @@ Template.register.events({
         Meteor.call("addUser", userData);
         FlashMessages.sendSuccess("User created successfully");
         Router.go("/login");
-        console.log("Form submitted.");
     }
 });

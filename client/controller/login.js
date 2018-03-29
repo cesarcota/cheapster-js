@@ -15,9 +15,6 @@ Template.login.events({
                 return;
             } else {
                 if (tempUser !== undefined) {
-                    console.log("EMAIL: " + tempUser.email);
-                    console.log("PASS: " + tempUser.password);
-                    console.log("PASS INSERT: " + passwordVar);
                     //This means that it entered here to do the Authentication
                     //Checks the password of the user
                     if (tempUser.password !== passwordVar) {
@@ -26,14 +23,7 @@ Template.login.events({
                         );
                         return;
                     } else {
-                        console.log(
-                            "EMAIL + PASS: " +
-                                tempUser.email +
-                                " " +
-                                tempUser.password
-                        );
                         Session.set("sessionUser", tempUser);
-                        console.log("TEMPUSER: " + tempUser);
                         //Store the user in a cookie
                         document.cookie = tempUser.email;
                         //document.cookie =

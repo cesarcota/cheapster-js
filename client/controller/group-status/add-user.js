@@ -33,7 +33,6 @@ Template.updateFriendsGroup.events({
                         groupUsers[index + groupLength].accuracy = 0;
                         groupUsers[index + groupLength].roundsPresent = 0;
                         groupUsers[index + groupLength].payedRounds = 0;
-                        console.log("DATA: ", groupUsers);
                     }
 
                     //Then checks if the loop in tempList has ended, then it does the update

@@ -9,7 +9,6 @@ Template.eventBoard.helpers({
 
     usersName() {
         var usersList = this.users;
-        console.log("USERS NAME: ", usersList);
         usersList.forEach(function(user, index) {
             var accuracy = user.accuracy;
             usersList[index].accuracy *= 100;
