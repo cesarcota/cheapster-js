@@ -1,3 +1,5 @@
+import validateEmail from "../../imports/email-validation.js";
+
 Template.register.events({
     "submit .add-user": function(event) {
         event.preventDefault();
@@ -7,6 +9,18 @@ Template.register.events({
         var displayName = event.target.registerDisplayName.value;
         var customTypes = ["Beer", "Coffee", "Meals", "Other"];
 
+        //Convert the password to hashcode
+        const hash = require("js-hash-code");
+        passwordVar = hash(passwordVar);
+        repeatPassword = hash(repeatPassword);
+
+        //Validate the email
+        if (validateEmail(emailVar) === false) {
+            FlashMessages.sendError("Not a valid email");
+            return;
+        }
+
+        //The user name can't have more than 12 characters
         if (displayName.length > 12) {
             FlashMessages.sendError(
                 "Display Name can't have more than 12 chars"

@@ -4,6 +4,10 @@ Template.login.events({
         var emailVar = event.target.loginEmail.value;
         var passwordVar = event.target.loginPassword.value;
 
+        //Convert the password to hashcode
+        const hash = require("js-hash-code");
+        passwordVar = hash(passwordVar);
+
         //Authentication
         Meteor.call("findByEmail", emailVar, function(error, tempUser) {
             if (error) {

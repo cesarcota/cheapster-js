@@ -35,3 +35,19 @@
   background-color: #e0e0eb;
   color: rgb(33, 65, 133);
 }
+
+.facebookLogin {
+  padding: 1%;
+  width: 30%;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
+  border-radius: 12px;
+  color: #e0e0eb;
+}
+
+.facebookLogin:hover {
+  background-color: rgb(46, 76, 141);
+  color: rgb(163, 175, 202);
+}
