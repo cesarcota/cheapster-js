@@ -1,5 +1,5 @@
 # cheapster-js
-This is a project that was born during a 24h marathon of programming, which by the way, we won it.
+This is a project that was born during a 24h marathon of programming, which by the way, we won.
 
 The purpose of the project, in this beta version, is to manage the rounds, of coffee, beer, etc, between friends, who regularly
 go out on one of those activities. However, this does not involve their money, it only keeps track of who's turn is to pay.
