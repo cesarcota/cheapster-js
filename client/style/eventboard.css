@@ -46,7 +46,7 @@ table.blueTable .displayNameEvent {
   padding-bottom: 15%;
   margin-bottom: 70%;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 2px;
   user-select: none;
 }
 
@@ -55,21 +55,23 @@ table.blueTable .displayNameEvent {
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  background-color: rgb(204, 178, 178);
 }
 
 /* Create a custom checkbox */
 .checkmark {
+  border-radius: 12px;
   position: absolute;
   top: 0;
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #ccc;
+  background-color: rgb(204, 178, 178);
 }
 
 /* On mouse-over, add a grey background color */
 .checkboxEventBoard:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: rgb(204, 178, 178);
 }
 
 /* When the checkbox is checked, add a blue background */
@@ -95,9 +97,75 @@ table.blueTable .displayNameEvent {
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: 2px solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+/*Radio Buttons*/
+/* The container */
+.radioButtonEvent {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 70%;
+  padding-bottom: 15%;
+  cursor: pointer;
+  font-size: 2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radioButtonEvent input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(204, 178, 178);
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radioButtonEvent:hover input ~ .checkmark {
+  background-color: rgb(204, 178, 178);
+}
+
+/* When the radio button is checked, add a blue background */
+.radioButtonEvent input:checked ~ .checkmark {
+  background-color: #3e87e7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioButtonEvent input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioButtonEvent .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
