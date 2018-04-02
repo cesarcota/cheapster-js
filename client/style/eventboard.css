@@ -37,6 +37,11 @@ table.blueTable .displayNameEvent {
   font-size: 18px;
 }
 
+table.blueTable .rowText {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 /*Checkboxs*/
 /* The container */
 .checkboxEventBoard {

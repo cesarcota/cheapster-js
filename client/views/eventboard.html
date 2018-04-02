@@ -30,8 +30,10 @@
             <form class="displayNameEvent">
                     {{#each usersName}}
                         <tr class="formTable">
-                            
-                            {{displayName}} - accuracy of: {{accuracy}}%
+                            <div class="rowText">
+                                {{displayName}} - accuracy of: {{accuracy}}%
+
+                            </div>
 
                         </tr>
                     {{/each}}
@@ -56,6 +58,10 @@
 <p>
     <button class="createEvent">Pay Round</button>
 
+</p>
+
+<p>
+    {{> back}}
 </p>
 
 </template>
