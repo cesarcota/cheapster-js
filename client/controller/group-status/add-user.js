@@ -28,12 +28,36 @@ Template.updateFriendsGroup.events({
                         );
                         invalidEmail = true;
                         return;
-                    } else {
-                        groupUsers.push(result);
-                        groupUsers[index + groupLength].accuracy = 0;
-                        groupUsers[index + groupLength].roundsPresent = 0;
-                        groupUsers[index + groupLength].payedRounds = 0;
                     }
+                    //if the friend is already in the group
+                    var groupUsers = Session.get("sessionGroup").users;
+                    var emailBelongsGroup = false;
+
+                    Object.keys(groupUsers).forEach(function(key) {
+                        console.log(
+                            "GROUP USER EMAIL: ",
+                            groupUsers[key].email
+                        );
+                        console.log("EMAIL: ", email);
+                        if (groupUsers[key].email === email) {
+                            emailBelongsGroup = true;
+                        }
+                    });
+
+                    if (emailBelongsGroup === true) {
+                        FlashMessages.sendError(
+                            "The mail " +
+                                result.email +
+                                " already belongs to this group"
+                        );
+                        console.log("AQUIIII???");
+                        return;
+                    }
+
+                    groupUsers.push(result);
+                    groupUsers[index + groupLength].accuracy = 0;
+                    groupUsers[index + groupLength].roundsPresent = 0;
+                    groupUsers[index + groupLength].payedRounds = 0;
 
                     //Then checks if the loop in tempList has ended, then it does the update
                     if (tempList.length - 1 === index) {

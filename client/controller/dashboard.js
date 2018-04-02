@@ -21,7 +21,6 @@ Template.listgroups.rendered = function() {
                         var names = "";
                         //console.log("USERS IN GROUP: "+names+" "+element.users.displayName);
                         var groupUsersNames = element.users;
-
                         Object.keys(groupUsersNames).forEach(function(key) {
                             names =
                                 names + " " + groupUsersNames[key].displayName;

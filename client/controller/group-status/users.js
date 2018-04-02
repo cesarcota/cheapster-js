@@ -6,7 +6,7 @@ Template.listUsers.helpers({
         usersList.forEach(function(user) {
             var updatedUser = {
                 displayName: user.displayName,
-                accuracy: user.accuracy * 100
+                accuracy: Math.round(user.accuracy * 100)
             };
             usersListToRender.push(updatedUser);
         });

@@ -115,7 +115,6 @@ Template.categories.helpers({
 
 Template.categories.events({
     "click .selectCategory": function(event, template) {
-        //var category = $(event.currentTarget).val();
         var category = event.target.id;
 
         selectGroupType.set(category);
@@ -138,5 +137,3 @@ Template.newgroup.helpers({
         }
     }
 });
-
-//Template to add new categories to the user memory, that he adds
