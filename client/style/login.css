@@ -13,7 +13,8 @@
 }
 
 .login .standardButton,
-#standardButton {
+#standardButton,
+.standardButton {
   border-radius: 12px;
   text-align: center;
   padding: 1%;
@@ -24,7 +25,8 @@
 }
 
 .login .standardButton:hover,
-#standardButton:hover {
+#standardButton:hover,
+.standardButton:hover {
   background-color: #e0e0eb;
   color: rgb(33, 65, 133);
 }
@@ -44,6 +46,7 @@
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
+  margin-top: -2%;
 }
 
 .login .standardAnchor:hover,

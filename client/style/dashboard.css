@@ -51,8 +51,10 @@ table.blueTable thead th:first-child {
 }
 
 table.blueTable .select-group {
+  text-align: center;
   padding: 1.3%;
   cursor: pointer;
+  white-space: pre-wrap;
 }
 
 table.blueTable .select-group:hover {
