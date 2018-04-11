@@ -1,11 +1,4 @@
 import { Meteor } from "meteor/meteor";
-import hash from "js-hash-code";
-import validateEmail from "../../imports/email-validation.js";
-
-Accounts.onCreateUser((options,user) => {
-    
-    return user;
-});
 
 Meteor.methods({
     addUser: function(userData) {
@@ -13,28 +6,14 @@ Meteor.methods({
         return userID;
     },
 
-    authenticate: function(email, password) {
-        var user = Users.findOne({ email });
-
-        console.log("user is", user);
-
-        return user.password === password;
-    },
-
     findByEmail: function(emailVar) {
         var user = Users.findOne({ email: emailVar });
-        return user? {email: user.email} : null;
+        return user;
     },
 
-    findGroups: function() {
-        console.log("finding groups for..", Meteor.userId());
-        if (!Meteor.userId()) {
-            return null;
-        }
-        
-        var user = Users.findOne({_id: Meteor.userId()});
-        console.log("user is", user);
-        return user;
+    findGroups: function(user) {
+        var groups = Users.findOne({ groups });
+        return groups;
     },
 
     updateUser: function(userId, categories) {
