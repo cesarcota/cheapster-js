@@ -1,28 +1,14 @@
-
+import validateEmail from "../../imports/email-validation.js";
 
 Template.register.events({
     "submit .add-user": function(event) {
         event.preventDefault();
-        var email = event.target.registerEmail.value;
-        var password = event.target.registerPassword.value;
+        var emailVar = event.target.registerEmail.value;
+        var passwordVar = event.target.registerPassword.value;
         var repeatPassword = event.target.repeatPassword.value;
-        var username = event.target.registerDisplayName.value;
+        var displayName = event.target.registerDisplayName.value;
         var customTypes = ["Beer", "Coffee", "Meals", "Other"];
 
-        var profile = {username, groups: [], customTypes};
-
-        Accounts.createUser({email, password, repeatPassword, profile}, function(err, result) {
-            console.log("arguments are", result);
-            if(!err){
-                FlashMessages.sendSuccess("User created successfully");
-                Router.go("/login");
-            }else{
-                FlashMessages.sendError(err);
-            }
-            
-        });
-
-        /*
         //Convert the password to hashcode
         const hash = require("js-hash-code");
         passwordVar = hash(passwordVar);
@@ -66,6 +52,5 @@ Template.register.events({
         Meteor.call("addUser", userData);
         FlashMessages.sendSuccess("User created successfully");
         Router.go("/login");
-        */
     }
 });
