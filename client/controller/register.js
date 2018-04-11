@@ -1,4 +1,4 @@
-
+import validateEmail from "../../imports/email-validation.js";
 
 Template.register.events({
     "submit .add-user": function(event) {
@@ -11,16 +11,44 @@ Template.register.events({
 
         var profile = {username, groups: [], customTypes};
 
-        Accounts.createUser({email, password, repeatPassword, profile}, function(err, result) {
-            console.log("arguments are", result);
-            if(!err){
-                FlashMessages.sendSuccess("User created successfully");
-                Router.go("/login");
-            }else{
-                FlashMessages.sendError(err);
+        //Create the user
+        var userData = {
+            email,
+            password,
+            repeatPassword,
+            username,
+            customTypes,
+            groups: []
+        };
+
+        Meteor.call("verification",userData,function(err,response){
+            console.log("RESPONSE: ",response);
+            if (!err){
+                if(response !== true){
+                    FlashMessages.sendError(response);
+                    return;
+                }
+
+             Accounts.createUser({email, password, profile}, function(err) {
+                console.log("ERROR", err);
+                if(!err){
+                    FlashMessages.sendSuccess("User created successfully");
+                    Router.go("/login");
+                }
+                    
+                    
+            });
+
             }
-            
         });
+
+            
+
+      
+
+      
+
+       
 
         /*
         //Convert the password to hashcode

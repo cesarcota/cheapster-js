@@ -4,14 +4,23 @@ Template.login.events({
         var emailVar = event.target.loginEmail.value;
         var passwordVar = event.target.loginPassword.value;
 
-        Meteor.loginWithPassword({email: emailVar}, passwordVar, function (err, success) {
+        Meteor.loginWithPassword(emailVar,passwordVar,function(error){
+            if(!error){
+                FlashMessages.sendSuccess("Loggin success!");
+                console.log("USER: ",Meteor.user());
+
+            }
+        });
+/*
+
+        Meteor.call("authenticate",emailVar, passwordVar, function (err, success) {
 
             console.log("called auth.. got", arguments)
             if (!success) {
                 FlashMessages.sendError("Not a valid email or password.");
                 return;
             }
-/*
+
             Session.set("sessionUser", tempUser);
             //Store the user in a cookie
             document.cookie = tempUser.email;
@@ -21,10 +30,11 @@ Template.login.events({
 
             //document.cookie = undefined;
             Router.go("/dashboard");
-            */
+            
 
 
 
         });
+        */
     }
 });
